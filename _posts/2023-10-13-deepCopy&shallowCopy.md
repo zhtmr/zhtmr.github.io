@@ -7,9 +7,6 @@ categories:
   - JavaScript
 tags:
   - JavaScript
-toc: true
-toc_sticky: true
-toc_label: 목차
 ---
 
 # 깊은 복사(Deep Copy)   
