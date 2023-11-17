@@ -172,8 +172,6 @@
       <h4 class="page__comments-title">{{ comments_label }}</h4>
       <section id="utterances-comments"></section>
     {% when "giscus" %}
-<!--      <h4 class="page__comments-title">{{ comments_label }}</h4>-->
-<!--      <section id="giscus-comments"></section>-->
   <script src="https://giscus.app/client.js"
           data-repo="zhtmr/zhtmr.github.io"
           data-repo-id="R_kgDOKcdUtw"
@@ -190,8 +188,10 @@
           crossorigin="anonymous"
           async>
   </script>
-  <div class="giscus">
-  </div>
+  <h4 class="page__comments-title">{{ comments_label }}</h4>
+  <section id="giscus-comments"></section>
+<!--  <div class="giscus">-->
+<!--  </div>-->
     {% when "custom" %}
       {% include /comments-providers/custom.html %}
   {% endcase %}
