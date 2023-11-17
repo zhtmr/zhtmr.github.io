@@ -46,13 +46,13 @@ comments:
     label                : #"Comment"
     issue_term           : #"pathname" # "pathname" (default)
   giscus:
-    repo_id              : "R_kgDOKcdUtw" # Shown during giscus setup at https://giscus.app
-    category_name        : "Comments" # Full text name of the category
-    category_id          : "DIC_kwDOKcdUt84CbCdX" # Shown during giscus setup at https://giscus.app
-    discussion_term      : "pathname" #(default), "url", "title", "og:title"
-    reactions_enabled    : '1' # '1' for enabled (default), '0' for disabled
-    theme                : "light_high_contrast" # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
-    lang                 : "ko"
+    repo_id              : #"R_kgDOKcdUtw" # Shown during giscus setup at https://giscus.app
+    category_name        : #"Comments" # Full text name of the category
+    category_id          : #"DIC_kwDOKcdUt84CbCdX" # Shown during giscus setup at https://giscus.app
+    discussion_term      : #"pathname" #(default), "url", "title", "og:title"
+    reactions_enabled    : #'1' # '1' for enabled (default), '0' for disabled
+    theme                : #"light_high_contrast" # "light" (default), "dark", "dark_dimmed", "transparent_dark", "preferred_color_scheme"
+    lang                 : #"ko"
   staticman:
     branch               : # "master"
     endpoint             : # "https://{your Staticman v3 API}/v3/entry/github/"
