@@ -33,6 +33,8 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+
+
   <style>
     ::-webkit-scrollbar{
       width: 13px;
@@ -65,9 +67,23 @@
 {% include_cached skip-links.html %}
 {% include_cached masthead.html %}
 
-<div class="initial-content">
-  {{ content }}
+<!-- 프로그레스 바 시작 -->
+<div id="progress-bar-container" class="progress-bar">
+  <span class="progress-bar-percentage"></span>
 </div>
+
+<div class="entry-content">
+  <main>
+
+    <div class="initial-content">
+      {{ content }}
+    </div>
+
+  </main>
+</div>
+<!-- 프로그레스 바 끝 -->
+
+
 
 {% if site.search == true %}
 <div class="search-content">
@@ -83,14 +99,52 @@
 </div>
 
 {% include scripts.html %}
+{% if page.use_math %}
+{% include mathjax_support.html %}
+{% endif %}
+<!--코드블럭 복사 버튼1 -->
+<!--<script src="https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js"></script>-->
 
+<!-- 맨위로 버튼 -->
 <script src="https://unpkg.com/vanilla-back-to-top@7.2.1/dist/vanilla-back-to-top.min.js"></script>
 <script>
   addBackToTop({
     diameter: 56,
     backgroundColor: 'rgb(186, 6, 130)',
+    // backgroundColor: '#542C85',
     textColor: '#fff'
-  })</script>
+  })
+</script>
 
+<!--코드블럭 복사 버튼2-->
+<!--<script src="/assets/js/main.min.js"></script>-->
+
+<!-- 프로그래스 바 -->
+<script>
+  class ScrollProgressBar {
+    constructor(selector, root, target, callback) {
+      this.element = document.querySelector(selector);
+      this.root = document.querySelector(root) || document.documentElement;
+      this.target = document.querySelector(target);
+      this.callback = callback;
+      window.addEventListener("scroll", this.computeScroll.bind(this));
+      this.computeScroll();
+    }
+
+    computeScroll() {
+      const scrollPercent = ~~((this.root.scrollTop - this.target.offsetTop - this.target.parentElement.offsetTop) / (this.target.clientHeight - this.root.clientHeight) * 100);
+      if (this.callback && typeof this.callback === "function")
+        this.callback(scrollPercent);
+    }
+  }
+
+  let progressBar = new ScrollProgressBar("#progress-bar-container", null, "main", function(scrollPercent) {
+    if (scrollPercent > 100)
+      this.element.style.opacity = 1 - (scrollPercent - 100) / 1;
+    else this.element.style.opacity = 1;
+
+    this.element.style.width = this.element.querySelector("span").innerText = Math.max(0, Math.min(100, scrollPercent)) + "%";
+  });
+</script>
 </body>
 </html>
