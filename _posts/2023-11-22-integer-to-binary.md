@@ -1,8 +1,8 @@
 ---
 published: true
 layout: single
-title:  "[CS] 정수를 저장하는 방식"
-excerpt: "컴퓨터가 정수 데이터를 어떻게 저장하는지 알아봅니다."
+title:  "[CS] 데이터 저장 방식 - 정수(Integer)"
+excerpt: ""
 categories:
   - CS
 tags:
