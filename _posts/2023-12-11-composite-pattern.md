@@ -241,7 +241,8 @@ public class MenuItem implements Menu {
     return this.title;
   }
 ```
-컴포지트 패턴에서 leaf 에 해당하는 부분이다.
+컴포지트 패턴에서 leaf 에 해당하는 부분이다. leaf 부분은 CRUD 작업에 대한 `MenuHandler` 를 주입받아 사용한다.
+이는 기존에 메뉴 객체에 섞여있던 `메뉴 출력`과 `CRUD 기능` 부분을 분리시키기 위함이다.
 
 ### Client
 ```java
@@ -277,5 +278,5 @@ public class Client {
   }
 }
 ```
-컴포지트 패턴을 사용하는 경우 사용자가 단일 객체와 복합 객체 모두 동일하게 다룰 수 있다.
+컴포지트 패턴을 사용하는 경우 사용자가 단일 객체와 복합 객체 모두 동일하게 다룰 수 있다. 
 기존에 `new MainMenu(prompt).execute()` 로 각 메뉴들을 호출했다면 이제는 메뉴의 종속관계가 코드상에 확실히 표현되고, 추가/삭제를 간편히 할 수 있다.
