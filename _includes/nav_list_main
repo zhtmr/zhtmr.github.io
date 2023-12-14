@@ -80,7 +80,12 @@
         <ul>
             {% for category in site.categories %}
                 {% if category[0] == "GitHub" %}
-                    <li><a href="/categories/github" class="">github ({{category[1].size}})</a></li>
+                    <li><a href="/categories/github" class="">GitHub ({{category[1].size}})</a></li>
+                {% endif %}
+            {% endfor %}
+            {% for category in site.categories %}
+                {% if category[0] == "Jekyll" %}
+                    <li><a href="/categories/jekyll" class="">Jekyll ({{category[1].size}})</a></li>
                 {% endif %}
             {% endfor %}
         </ul>
