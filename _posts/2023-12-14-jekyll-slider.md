@@ -10,8 +10,8 @@ tags:
 use_math: true
 carousels:
   - images:
-      - image: /assets/images/404image.png
-      - image: /assets/images/404image2.png
+      - image: /assets/images/sample_image1.png
+      - image: /assets/images/sample_image2.png
       
 ---
 
