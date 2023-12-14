@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title:  "[GitHub]"
+title:  "[Jekyll] Github 블로그에 carousel 추가"
 excerpt: ""
 categories:
   - Jekyll
