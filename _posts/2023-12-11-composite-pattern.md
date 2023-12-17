@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title:  "[디자인패턴]컴포지트 패턴(Composite Pattern)"
+title:  "[디자인패턴] 컴포지트 패턴(Composite Pattern)"
 excerpt: ""
 categories:
   - Design Pattern
