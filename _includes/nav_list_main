@@ -79,13 +79,13 @@
         <span class="nav__sub-title">GitHub</span>
         <ul>
             {% for category in site.categories %}
-                {% if category[0] == "GitHub" %}
-                    <li><a href="/categories/github" class="">GitHub ({{category[1].size}})</a></li>
+                {% if category[0] == "Github" %}
+                    <li><a href="/categories/github" class="">Github ({{category[1].size}})</a></li>
                 {% endif %}
             {% endfor %}
             {% for category in site.categories %}
-                {% if category[0] == "Jekyll" %}
-                    <li><a href="/categories/jekyll" class="">Jekyll ({{category[1].size}})</a></li>
+                {% if category[0] == "GitHub Blog" %}
+                    <li><a href="/categories/githubblog" class="">GitHub Blog ({{category[1].size}})</a></li>
                 {% endif %}
             {% endfor %}
         </ul>

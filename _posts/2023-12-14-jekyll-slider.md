@@ -1,12 +1,12 @@
 ---
 published: true
 layout: single
-title:  "[Jekyll] Github 블로그에 carousel 추가"
+title:  "[GitHub Blog] Github 블로그에 carousel 추가"
 excerpt: ""
 categories:
-  - Jekyll
+  - GitHub Blog
 tags:
-  - Jekyll
+  - [GitHub Blog, Jekyll]
 use_math: true
 carousels:
   - images:
