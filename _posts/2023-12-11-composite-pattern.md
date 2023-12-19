@@ -280,3 +280,5 @@ public class Client {
 ```
 컴포지트 패턴을 사용하는 경우 사용자가 단일 객체와 복합 객체 모두 동일하게 다룰 수 있다. 
 기존에 `new MainMenu(prompt).execute()` 로 각 메뉴들을 호출했다면 이제는 메뉴의 종속관계가 코드상에 확실히 표현되고, 추가/삭제를 간편히 할 수 있다.
+
+[전체 소스](https://github.com/zhtmr/mystudy/blob/main/myapp/app/src/main/java/bitcamp/menu/MenuGroup.java)
