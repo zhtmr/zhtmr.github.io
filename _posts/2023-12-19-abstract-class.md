@@ -89,6 +89,7 @@ mermaid: true
 이전보다 좀 더 객체지향 스러워지긴 했으나 여전히 문제가 남아있다.
 
 메소드를 재정의하는 과정에서 `super.action(menu)` 을 필수로 호출해야 한다. 개발자가 실수로 작성하지 않는 경우를 미연에 방지할 수가 없다.
+[코드 확인](https://github.com/zhtmr/mystudy/commit/702b9b9105138a78339b9ea168c3d6a8ef052646)
 
 ## 수정된 AbstractMenuHandler
 ```java
@@ -147,6 +148,8 @@ mermaid: true
 `AbstractMenuHandler` 를 상속받은 클래스는 추상메소드를 필수적으로 구현해야 한다.
 
 기존에는 `MenuHandler` 인터페이스를 직접 구현해 사용했지만 수정된 코드에서는 인터페이스와 구상클래스 중간에 있는 `AbstractMenuHandler` 의 메소드를 재정의해서 사용하게 된다.
+[코드 확인](https://github.com/zhtmr/mystudy/commit/1358d5dbfc5c5a1efcb2803cdfe58cad6fef696b)
+
 
 ### 실행흐름
 ### As-is
