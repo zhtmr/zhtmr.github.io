@@ -11,7 +11,7 @@ use_math: true
 mermaid: true
 ---
 
-> [이전 글](../design%20pattern/composite-pattern/)에서 계층구조를 가지는 메뉴에 컴포지트 패턴을 적용해봤다. 이번 글에서는 추상클래스를 적용해 공통기능 추출 및 자동화 해본다.
+> [이전 글](https://zhtmr.github.io/design%20pattern/composite-pattern/)에서 계층구조를 가지는 메뉴에 컴포지트 패턴을 적용해봤다. 이번 글에서는 추상클래스를 적용해 공통기능 추출 및 자동화 해본다.
 
 # 문제
 현재까지 작업한 소스에서 `BoardAddHandler`, `BoardDeleteHandler`, `BoardListHandler`, `BoardViewHandler`, `BoardModifyHandler` 등 각 도메인의 핸들러마다 공통으로 중복되는 소스코드가 있다.
