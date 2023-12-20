@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title:  "[Java] 인터페이스 상속"
+title:  "[Java] 기존 인터페이스에 새로운 규칙을 추가해보자!(추상클래스, 인터페이스 상속)"
 excerpt: ""
 categories:
   - Java
@@ -14,6 +14,7 @@ use_math: true
 
 # 인터페이스 상속
 만약 이미 인터페이스를 구현한 클래스가 여럿 존재하는 상태에서 새로운 규칙을 인터페이스에 정의하고 싶을땐 어떻게 해야할까?
+이 글에서는 기존 인터페이스에 새로운 규칙 추가시 발생하는 딜레마를 해결하는 과정에 대해 설명한다.
 
 ```java
   // Interface
