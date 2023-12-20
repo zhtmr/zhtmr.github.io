@@ -173,3 +173,6 @@ mermaid: true
 ```
 
 기존의 `MenuHandler 를 구현한 BoardAddHandler 에서 action(menu) 실행` 이 부분을 분리한 것이라 보면 된다.
+java api 는 이런식으로 인터페이스를 일부 구현한 추상클래스를 중간에 두고 이를 상속받아서 만드는 객체들이 많다.
+![](/assets/images/12-19/java-api.png){: .align-center}
+
