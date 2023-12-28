@@ -6,7 +6,7 @@ excerpt: ""
 categories:
   - Java
 tags:
-  - Java
+  - ['java', 'refactoring']
 use_math: true
 ---
 > - 인터페이스 간의 상속에 대해 알아본다.
