@@ -173,19 +173,29 @@ a > code,
 li > code,
 figcaption > code,
 td > code {
-  padding-top: 0.1rem;
-  padding-bottom: 0.1rem;
-  font-size: 0.8em;
-  background: $code-background-color;
-  border-radius: $border-radius;
-  color: $primary-color;
-
-  &:before,
-  &:after {
-    letter-spacing: -0.2em;
-    content: "\00a0"; /* non-breaking space*/
-  }
+  border-radius: 3px;
+  background-color: #272b33;
+  color: #e5e5e5;
+  font-size: 90%;
+  font-weight: normal;
+  padding: 0.25em 0.5em;
 }
+
+/* default code style: 위 td > code {} 안에 넣으면 됨 */
+//padding-top: 0.1rem;
+//padding-bottom: 0.1rem;
+//font-size: 0.8em;
+//background: $code-background-color;
+//border-radius: $border-radius;
+//color: $primary-color;
+//
+//&:before,
+//&:after {
+//  letter-spacing: -0.2em;
+//  content: "\00a0"; /* non-breaking space*/
+//}
+
+
 
 /* horizontal rule */
 
