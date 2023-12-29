@@ -6,7 +6,7 @@ excerpt: ""
 categories:
   - Java
 tags:
-  - ['refactoring', 'java']
+  - ['Refactoring', 'Java']
 use_math: true
 mermaid: true
 ---
