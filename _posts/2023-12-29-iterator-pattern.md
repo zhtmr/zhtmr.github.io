@@ -322,6 +322,8 @@ public Iterator<E> iterator() {
 }
 ```
 
+#### 소스코드
+[771eaae](https://github.com/zhtmr/mystudy/commit/771eaae488ad5ab78de175e53703caf960dfcafe)
 
 ## 정리
 이펙티브 자바에선 멤버 클래스에 대해 아래와 같이 정리하고 있다.
