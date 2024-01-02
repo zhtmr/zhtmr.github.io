@@ -89,7 +89,7 @@ public class LinkedList<E> extends AbstractList<E> {
 
 `LinkedList`를 사용하고 있는 곳에서 아래처럼 반복자를 생성해 데이터를 조회한다.
 ```java
-  new ArrayList<>().iterator();
+  new LinkedList<>().iterator();
 ```
 ![](/assets/images/20231229/ListIterator2.png){: .align-center}
 
