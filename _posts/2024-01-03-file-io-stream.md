@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title:  "[Java] FileInputStream/FileOutputStream"
+title:  "[Java] FileInputStream / FileOutputStream"
 excerpt: ""
 categories:
   - Java
@@ -9,11 +9,11 @@ tags:
   - ['Java', 'Refactoring']
 use_math: true
 ---
-> [이전 글](https://zhtmr.github.io/design%20pattern/iterator-pattern/)에서 메뉴관리를 이터레이터 패턴을 이용해 개선했다.
+> [이전 글](https://zhtmr.github.io/design%20pattern/iterator-pattern/)에서는 이터레이터 패턴을 이용해 메뉴관리를 개선해봤다.
 > 이번 글에서는 데이터 저장/조회를 메모리가 아닌 파일에 쓰고/읽도록 변경해 본다.
 
-현재 `List` 구현체에 저장하는 로직만 있기때문에 데이터가 영속성을 갖지 않는다. 프로그램이 종료되면 메모리에 올라가 있던 데이터가 지워진다.
-파일로 저장하도록 수정해보자.
+현재 메모리 상에서 `List` 구현체에 저장하는 로직만 있기때문에 데이터가 영속성을 갖지 않는다. 프로그램이 종료되면 메모리에 올라가 있던 데이터가 지워진다.
+이 부분을 아래 그림처럼 파일에 저장되도록 수정해보자.
 
 ![](/assets/images/20240103/data-persist.png){: .align-center}
 *파일로부터 데이터를 읽어들인다.*
@@ -65,7 +65,7 @@ public class App {
 }
 ```
 
-이를 메소드 호출로 동작하도록 수정해보자. 
+역할에 따라 메소드로 구분하고 메소드 호출로 동작하도록 수정해보자. 
 구현을 단순화 하기 위해 프로그램이 종료될때 파일에 출력하고, 프로그램이 시작될때 파일을 모두 읽어 메모리에 로딩하기로 한다.
 
 ## after
@@ -123,6 +123,7 @@ public class App {
     saveGreeting();
   }
   
+  /* 아래 메소드들을 통해 파일 입출력을 다룬다. */
   void saveAssignment() {
       ...
   }
@@ -161,11 +162,11 @@ public class App {
 }
 ```
 `run()`메소드가 종료되기 전에 각 메뉴에서 `List`구현체에 저장했던 데이터들을 파일에 저장하도록 하고, 
-프로그램 시작 시 `App`클래스 생성자를 호출해 데이터를 불러오는 메소드를 최초 호출하도록 한다.
+프로그램 시작 시 `App`클래스 생성자를 호출해 데이터를 불러오는 메소드를 최초 호출하도록 수정한다.
 
 # FileOutputStream
 파일에 데이터를 출력하기위해 `FileOutputStream`를 사용한다. 생성자에 String 타입으로 파일명을 지정해 줄 수 있다.
-파일에 데이터를 저장할 때는 `byte`(8 bit)단위로 저장된다.
+파일에 데이터를 저장할 때는 `byte`(8 bit)단위로 읽어 저장한다.
 
 ```java
 void saveAssignment() {
@@ -288,10 +289,10 @@ int size = in.read() << 8 | in.read();
 ![](/assets/images/20240103/io-flow.png){: .align-center}
 *데이터 흐름*
 
-# DataOutputStream / DataInputStream (wrapper class) 
-이전 코드에서 파일 입출력을 가장 기본적으로 지원하는 `FileOutputStream` 과 `FileInputStream` 을 이용해 파일 입출력을 다루면서 불편한 점이 있는데, 
-그건 바로 byte 형식으로 데이터를 다뤄야 한다는 것이다. 파일에 출력 시 데이터의 사이즈를 기록하는 코드를 중복으로 계속 작성해야 하고, 읽어올 때도 마찬가지다.
-이런 부분을 클래스로 추출해 `wrapper class` 로 만들어보자.
+# DataOutputStream / DataInputStream (wrapper class 구현) 
+이전 코드에서 `FileOutputStream` 과 `FileInputStream` 을 이용해 파일 입출력을 다루면서 불편한 점이 있었는데, 
+그건 바로 *byte 형식으로 데이터를 다룬다는 것*이다. 파일 입출력 시 바이트 하나하나 읽어오는 코드를 여기저기 중복으로 작성해야 했다.
+이런 부분을 대신할 클래스(`wrapper class`) 를 만들어보자.
 
 ## DataOutputStream
 ```java
@@ -300,7 +301,7 @@ public class DataOutputStream extends FileOutputStream {
     super(name);
   }
 
-  // 1 byte 출력하기
+  // 2 byte 출력하기
   public void writeShort(int value) throws IOException {
     write(value >> 8);
     write(value);
@@ -342,27 +343,29 @@ public class DataOutputStream extends FileOutputStream {
   }
 }
 ```
-기존에 비즈니스 로직에서 바이트 이동 연산을 추출해 메소드안에서 작업하도록 만들었다. 이를 통해 클라이언트 코드가 간결해 진다.
+기존에 비즈니스 로직에서 비트 이동 연산을 하던 코드를 추출해 메소드안에서 작업하도록 만들었다. 이로 인해 클라이언트 코드가 간결해 진다.
+
 
 ### saveAssignment
 ```java
-  void saveAssignment() {
-    try (DataOutputStream out = new DataOutputStream("assignment.data")) {
+void saveAssignment() {
+  try (DataOutputStream out = new DataOutputStream("assignment.data")) {
 
-      // 저장할 데이터 갯수를 2바이트로 출력한다.
-      out.writeShort(assignmentRepository.size());
+    // 저장할 데이터 갯수를 2바이트로 출력한다.
+    out.writeShort(assignmentRepository.size());
 
-      for (Assignment assignment : assignmentRepository) {
-        out.writeUTF(assignment.getTitle());
-        out.writeUTF(assignment.getContent());
-        out.writeUTF(assignment.getDeadline().toString());
-      }
-    } catch (Exception e) {
-      System.out.println("과제 데이터 저장 중 오류 발생!");
-      e.printStackTrace();
+    for (Assignment assignment : assignmentRepository) {
+      out.writeUTF(assignment.getTitle());
+      out.writeUTF(assignment.getContent());
+      out.writeUTF(assignment.getDeadline().toString());
     }
+  } catch (Exception e) {
+    System.out.println("과제 데이터 저장 중 오류 발생!");
+    e.printStackTrace();
   }
+}
 ```
+파라미터로 데이터만 전달해주면 바이트를 하나씩 이동하면서 파일에 쓰는 작업은 메소드 내부에서 한다.
 
 ## DataInputStream
 ```java
@@ -400,33 +403,31 @@ public class DataInputStream extends FileInputStream {
     read(buf, 0, len);
     return new String(buf, 0, len, StandardCharsets.UTF_8);
   }
-
 }
 ```
 
 ### loadAssignment
 ```java
 void loadAssignment() {
-    try (DataInputStream in = new DataInputStream("assignment.data")) {
-      int size = in.readShort();
+  try (DataInputStream in = new DataInputStream("assignment.data")) {
+    int size = in.readShort();
 
-      for (int i = 0; i < size; i++) {
-        Assignment assignment = new Assignment();
-        assignment.setTitle(in.readUTF());
-        assignment.setContent(in.readUTF());
-        assignment.setDeadline(Date.valueOf(in.readUTF()));
-        assignmentRepository.add(assignment);
-      }
-    } catch (Exception e) {
-      System.out.println("과제 데이터 로딩 중 오류 발생!");
-      e.printStackTrace();
+    for (int i = 0; i < size; i++) {
+      Assignment assignment = new Assignment();
+      assignment.setTitle(in.readUTF());
+      assignment.setContent(in.readUTF());
+      assignment.setDeadline(Date.valueOf(in.readUTF()));
+      assignmentRepository.add(assignment);
     }
+  } catch (Exception e) {
+    System.out.println("과제 데이터 로딩 중 오류 발생!");
+    e.printStackTrace();
   }
+}
 ```
 
 ## 소스코드
 [소스코드](https://github.com/zhtmr/mystudy/tree/main/myapp)
-
 
 
 추후에 데코레이터패턴을 이용해 결합도 낮추기, 버퍼사용해 성능 개선, 객체 직렬화 등을 적용해 본다.
