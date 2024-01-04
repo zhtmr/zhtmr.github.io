@@ -427,9 +427,26 @@ void loadAssignment() {
 }
 ```
 
+
+## 정리 & 개선사항
+기존 코드에서 입력과 출력이 메모리 상에서만 이루어지던 것을 파일 입출력 기능을 추가해 파일로 읽고 쓰도록 수정했다.
+또한 `FileInputStream`과 `FileOutputStream`을 상속받아 만든 `wrapper class`를 이용해 클라이언트에서 코드를 간편하게 작성할 수 있도록 만들었다.
+
+그러나 아직 몇가지 개선해야 할 사항이 있다. 
+첫번째는 데이터의 크기가 커지면 입출력 속도가 매우 느려진다는 치명적인 문제가 있다. (data seek time)
+두번째는 첫번째 문제를 개선하기 위해 상속을 이용하는데, 이로인해 발생하는 문제를 해결하는 방식에 대해 알아본다. (상속을 이용한 기능확장 방식의 문제점)
+
+다음 글에 이어서 개선해 보도록 한다. 
+### 1. data seek time
+👉 [버퍼에 담아서 읽고 쓰도록 변경하기](https://zhtmr.github.io/java/buffered-stream/)
+
+### 2. 상속을 이용한 기능확장 방식의 문제점
+👉 [데코레이터 패턴(Decorator pattern)](https://zhtmr.github.io/design%20pattern/decorator-pattern/)
+
+
+
 ## 소스코드
 [소스코드](https://github.com/zhtmr/mystudy/tree/main/myapp)
 
 
-추후에 데코레이터패턴을 이용해 결합도 낮추기, 버퍼사용해 성능 개선, 객체 직렬화 등을 적용해 본다.
 
