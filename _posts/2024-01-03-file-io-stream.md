@@ -441,7 +441,7 @@ void loadAssignment() {
 👉 [버퍼에 담아서 읽고 쓰도록 변경하기](https://zhtmr.github.io/java/buffered-stream/)
 
 ### 2. 상속을 이용한 기능확장 방식의 문제점
-👉 [데코레이터 패턴(Decorator pattern)](https://zhtmr.github.io/design%20pattern/decorator-pattern/)
+👉 [데코레이터 패턴(Decorator pattern)](https://zhtmr.github.io/design%20pattern/decorator-pattern/)을 이용해 개선해보자.
 
 
 
