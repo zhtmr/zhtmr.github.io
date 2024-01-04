@@ -210,7 +210,7 @@ void saveAssignment() {
    ![img.png](/assets/images/20240103/write-jni.png){: .align-center}
 *FileOutputStream 의 write()는 내부적으로 OS API를 호출한다.*
 
-   `size()`가 1 byte를 넘어갈 경우를 대비해 `write()`가 충분한 크기(2byte)를 읽게 한다.
+   파라미터로 들어오는 `size()`가 int 이므로 4byte(양수 데이터만 약 21억개)를 읽어야 하지만, 그정도 크기의 사이즈를 다루는 프로그램은 아니기 때문에 맨 뒤 2byte 정도만 읽어도 충분하다고 가정한다.
 
 2. **title, content 의 정보를 읽어와 byte 배열로 변환한다.**
 ```java
@@ -398,9 +398,10 @@ public class DataInputStream extends FileInputStream {
   }
 
   public String readUTF() throws IOException {
-    int len = read() << 8 | read();
-    byte[] buf = new byte[60000];
-    read(buf, 0, len);
+    int len = readShort();
+    //    byte[] buf = new byte[len];
+    //    read(buf, 0, len);
+    byte[] buf = readNBytes(len); // 위와 같은 코드 (java11 부터 지원가능)
     return new String(buf, 0, len, StandardCharsets.UTF_8);
   }
 }
