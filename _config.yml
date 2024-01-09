@@ -20,7 +20,7 @@ title                    : "awesome!"
 title_separator          : "-"
 subtitle                 :  # site tagline that appears below site title in masthead
 name                     : "awesome!"
-description              : "공부한 내용을 올리는 블로그 입니다."
+description              : "Elevating Insights for the Development Journey!😀"
 url                      : "https://zhtmr.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "zhtmr/zhtmr.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
