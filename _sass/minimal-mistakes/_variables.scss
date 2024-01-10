@@ -13,8 +13,9 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
+$cookie-run: CookieRun-Regular, 'CookieRun Regular';
 $serif: Georgia, Times, serif !default;
-$sans-serif: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
+$sans-serif: $cookie-run, -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
 "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
 $monospace: 'NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
 $D2coding: D2Coding, 'D2 coding','NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
