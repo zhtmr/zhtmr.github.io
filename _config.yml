@@ -20,7 +20,7 @@ title                    : "awesome!"
 title_separator          : "-"
 subtitle                 :  # site tagline that appears below site title in masthead
 name                     : "awesome!"
-description              : "Elevating Insights for the Development Journey!😀"
+description              : "😀"
 url                      : "https://zhtmr.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : "zhtmr/zhtmr.github.io" # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -109,7 +109,7 @@ analytics:
 author:
   name             : "Awesome!"
   avatar           : "/assets/images/profile.jpeg"# path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "Elevating Insights for the Development Journey!😀"
+  bio              : "😀"
   #location         : "Somewhere"
   email            :
   links:
