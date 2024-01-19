@@ -11,6 +11,7 @@
  */
 
 @mixin notice($notice-color) {
+  word-break: break-all;
   margin: 2em 0 !important;  /* override*/
   padding: 1em;
   color: $text-color;
