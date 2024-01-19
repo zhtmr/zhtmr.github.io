@@ -175,4 +175,10 @@ req.getHeader("User-Agent");
 
 
 ## reference
+{% capture notice-2 %}
 - [스프링 부트와 AWS로 혼자 구현하는 웹 서비스](https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=218568947&start=slayer)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+

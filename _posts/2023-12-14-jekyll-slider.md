@@ -51,6 +51,12 @@ carousels:
 
 
 
-## ref
+## reference
+{% capture notice-2 %}
 - [https://jekyllcodex.org/without-plugin/slider/](https://jekyllcodex.org/without-plugin/slider/)
 - [https://cadamini.github.io/test-images-carousel/](https://cadamini.github.io/test-images-carousel/)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+

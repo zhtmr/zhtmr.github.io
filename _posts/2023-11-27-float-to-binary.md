@@ -176,9 +176,15 @@ java 에서는 부동소수점 저장 형식으로 `float(32bit)` 와 `double(64
 
 어떤 수의 자릿수(유효숫자)가 7자리 이하인 경우엔 높은 확률로 `float(32bit)` 에 저장될 수 있고, 15자리 이상인 경우 `double(64bit)` 에 저장해야 그나마 정확한 숫자를 저장할 수 있다.
 
-## 참조
+## reference
+{% capture notice-2 %}
 - [https://gsmesie692.tistory.com/94](https://gsmesie692.tistory.com/94)
 - [https://ko.wikipedia.org/wiki/부동소수점](https://ko.wikipedia.org/wiki/%EB%B6%80%EB%8F%99%EC%86%8C%EC%88%98%EC%A0%90)
 - [Inpa Dev님 블로그](https://inpa.tistory.com/entry/JAVA-%E2%98%95-%EC%8B%A4%EC%88%98-%ED%91%9C%ED%98%84%EB%B6%80%EB%8F%99-%EC%86%8C%EC%88%98%EC%A0%90-%EC%9B%90%EB%A6%AC-%ED%95%9C%EB%88%88%EC%97%90-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+
 
 

@@ -111,6 +111,12 @@ npm run deploy
 
 
 
-### reference
+## reference
+{% capture notice-2 %}
 - [https://fe-developers.kakaoent.com/2022/220929-workflow-dispatch-with-inquirer-js/](https://fe-developers.kakaoent.com/2022/220929-workflow-dispatch-with-inquirer-js/)
 - [https://github.com/cli/cli/issues/6328](https://github.com/cli/cli/issues/6328)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+

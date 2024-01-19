@@ -172,7 +172,13 @@ public class BufferedDataOutputStream extends DataOutputStream {
 - **DataOutputStream**: 56.2초
 - **BufferedDataOutputStream**: 0.4초
 
-## ref
+## reference
+{% capture notice-2 %}
 - [hdd 저장기간](https://eshop.macsales.com/blog/43702-we-bet-you-didnt-know-that-your-hdds-or-ssds-may-need-exercise-too/)
 - [data seek time](https://www.lifewire.com/what-does-seek-time-mean-2626007)
 - [hdd 구조](https://bubble-dev.tistory.com/entry/%ED%95%98%EB%93%9C%EB%94%94%EC%8A%A4%ED%81%AC-%EA%B5%AC%EC%A1%B03-%EB%B9%84%EC%9A%A9)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+

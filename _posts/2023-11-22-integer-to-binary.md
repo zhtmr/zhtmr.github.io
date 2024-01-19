@@ -278,7 +278,12 @@ use_math: true
 [//]: # (// 컴파일 오류 대신 단지 값이 짤린다.)
 
 
-### 참고
-{:.no_toc}
+## reference
+{% capture notice-2 %}
 - [https://ndb796.tistory.com/4](https://ndb796.tistory.com/4)
 - [https://ko.wikipedia.org/wiki/보수_(수학)](https://ko.wikipedia.org/wiki/%EB%B3%B4%EC%88%98_(%EC%88%98%ED%95%99))
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+

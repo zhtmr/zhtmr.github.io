@@ -208,8 +208,14 @@ lombok 에는 @Data 라는 강력한 어노테이션을 지원하는데 이는 c
 ```
 
 
-### reference
+## reference
+{% capture notice-2 %}
 - [https://jojoldu.tistory.com/134](https://jojoldu.tistory.com/134)
 - [https://deveric.tistory.com/123](https://deveric.tistory.com/123)
 - [https://lkhlkh23.tistory.com/159](https://lkhlkh23.tistory.com/159)
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+
 

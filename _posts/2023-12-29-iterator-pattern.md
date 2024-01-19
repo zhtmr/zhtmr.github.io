@@ -332,7 +332,13 @@ public Iterator<E> iterator() {
 > - 멤버 클래스의 인스턴스가 바깥 인스턴스를 참조하지 않는다면 👉 <U>static nested class</U>
 > - 멤버 클래스가 한 메소드 안에서만 쓰이면서 그 인스턴스를 생성하는 지점이 단 한 곳이고 해당 타입으로 쓰기에 적합한 클래스나 인터페이스가 이미 있다면 👉 <U>anonymous class</U>
 
-{:.no_toc}
+
 ## reference
+{% capture notice-2 %}
 - [한빛출판네트워크](https://www.hanbit.co.kr/channel/category/category_view.html?cms_code=CMS8586826397)
 - 이펙티브 자바 3판
+{% endcapture %}
+
+<div class="notice">{{ notice-2 | markdownify }}</div>
+
+
