@@ -20,4 +20,4 @@ ENV JEKYLL_ENV=production
 RUN jekyll build
 
 # Command to run your site using the default Jekyll server
-CMD ["bundle", "exec", "jekyll", "serve", "--livereload","--host", "0.0.0.0", "--port", "4000"]
+CMD ["jekyll", "serve", "--host", "0.0.0.0", "--port", "4000"]
