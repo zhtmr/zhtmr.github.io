@@ -30,7 +30,7 @@ use_math: true
 
 스레드수를 늘려 I/O-bound 문제를 회피한다고 해도, 이렇게 직접 Hdd에 읽고/쓰는 방식은 금방 한계에 부딪힐 것이다.
 왜냐하면 Java의 스레드도 마찬가지로 JNI를 호출해 OS의 스레드를 이용하는데, 
-스레드가 늘어날수록 CPU 작업(CPU-bound)과 I/O 작업(I/O-bound) 간의 race condition 상황([context switching](https://bit.ly/3RQ1SLE))이 자주 발생해 전체적인 퍼포먼스가 떨어진다.
+스레드가 늘어날수록 I/O 작업(I/O-bound) 간의 [context switching](https://bit.ly/3RQ1SLE)이 자주 발생해 전체적인 퍼포먼스가 떨어진다.
 
 
 데이터 입출력 시간을 줄이는 것의 핵심은 **hdd에 접근하는 횟수를 최대한 줄이는 것**이다.
