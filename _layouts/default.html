@@ -8,7 +8,7 @@
   Free for personal and commercial use under the MIT license
   https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE
 -->
-<html lang="{{ site.locale | slice: 0,2 | default: "en" }}" class="no-js">
+<html lang="{{ site.locale | slice: 0,2 | default: " en" }}" class="no-js">
 <head>
   {% include head.html %}
   {% include head/custom.html %}
@@ -34,6 +34,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
 
+  <!-- TOC -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tocbot/4.27.4/tocbot.min.js"></script>
 
   <style>
     ::-webkit-scrollbar{
@@ -64,6 +67,40 @@
     .entry-content {
       flex: 1 0 auto;
     }
+
+    /*  Toc*/
+    .toc-absolute {
+      position: absolute;
+      margin-top:165px;
+    }
+    .toc-fixed {
+      position: fixed;
+      top: 165px;
+    }
+
+    .toc {
+      right: calc((100% - 850px) / 2 - 300px);
+      width: 250px;
+      padding: 10px;
+      box-sizing: border-box;
+    }
+
+    .toc-list {
+      margin-top: 10px !important;
+      font-size: 0.9em;
+    }
+
+    .toc > .toc-list li {
+      margin-bottom: 10px;
+    }
+
+    .toc > .toc-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .toc > .toc-list li a {
+      text-decoration: none;
+    }
   </style>
 </head>
 
@@ -78,7 +115,6 @@
 
 <div class="entry-content">
   <main>
-
     <div class="initial-content">
       {{ content }}
     </div>

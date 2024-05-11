@@ -52,6 +52,11 @@
                     {% endif %}
                 {% endfor %}
             </ul>
+        {% for category in site.categories %}
+            {% if category[0] == "Redis" %}
+                <a href="/categories/redis" class=""><span class="nav__sub-title">Redis ({{category[1].size}})</span></a>
+            {% endif %}
+        {% endfor %}
         <span class="nav__sub-title">DevOps</span>
         <ul>
             {% for category in site.categories %}

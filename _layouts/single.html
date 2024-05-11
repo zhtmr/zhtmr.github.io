@@ -41,14 +41,18 @@ layout: default
       {% endunless %}
 
       <section class="page__content e-content" itemprop="text">
-        {% if page.toc %}
-          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
-            <nav class="toc">
-              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>
-              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}
-            </nav>
-          </aside>
-        {% endif %}
+        <!--  tocbot 사용   -->
+        <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">
+          <nav class='toc toc-right'></nav>
+        </aside>
+<!--        {% if page.toc %}-->
+<!--          <aside class="sidebar__right {% if page.toc_sticky %}sticky{% endif %}">-->
+<!--            <nav class="toc">-->
+<!--              <header><h4 class="nav__title"><i class="fas fa-{{ page.toc_icon | default: 'file-alt' }}"></i> {{ page.toc_label | default: site.data.ui-text[site.locale].toc_label | default: "On this page" }}</h4></header>-->
+<!--              {% include toc.html sanitize=true html=content h_min=1 h_max=6 class="toc__menu" skip_no_ids=true %}-->
+<!--            </nav>-->
+<!--          </aside>-->
+<!--        {% endif %}-->
         {{ content }}
         {% if page.link %}<div><a href="{{ page.link }}" class="btn btn--primary">{{ site.data.ui-text[site.locale].ext_link_label | default: "Direct Link" }}</a></div>{% endif %}
       </section>
@@ -103,6 +107,47 @@ layout: default
     ChannelIO('boot', {
       "pluginKey": "954e817f-465b-4977-8205-2f75e2e71e51"
     });
+  </script>
+  <script>
+    var content = document.querySelector('.page__content')
+    var headings = content.querySelectorAll('h1, h2, h3, h4, h5, h6')
+    var headingMap = {}
+
+    Array.prototype.forEach.call(headings, function (heading) {
+      var id = heading.id ? heading.id : heading.textContent.trim().toLowerCase()
+        .split(' ').join('-').replace(/[\!\@\#\$\%\^\&\*\(\):]/ig, '')
+      headingMap[id] = !isNaN(headingMap[id]) ? ++headingMap[id] : 0
+      if (headingMap[id]) {
+        heading.id = id + '-' + headingMap[id]
+      } else {
+        heading.id = id
+      }
+    })
+
+    tocbot.init({
+      tocSelector: '.toc',
+      contentSelector: '.page__content',
+      headingSelector:'h1, h2, h3',
+      hasInnerContainers: false,
+      headingsOffset: 40,
+      scrollSmoothOffset: -40,
+    });
+
+    $(document).ready(function(){
+      $('.toc').addClass('toc-absolute');
+
+      var toc_top = $('.toc').offset().top - 165;
+      $(window).scroll(function() {
+        if ($(this).scrollTop() >= toc_top) {
+          $('.toc').addClass('toc-fixed');
+          $('.toc').removeClass('toc-absolute');
+        } else {
+          $('.toc').addClass('toc-absolute');
+          $('.toc').removeClass('toc-fixed');
+        }
+      });
+    });
+
   </script>
 
 </div>
