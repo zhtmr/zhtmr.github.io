@@ -82,7 +82,7 @@ To get started with GitHub CLI, please run:  gh auth login
 Alternatively, populate the GH_TOKEN environment variable with a GitHub API authentication token.
 ```
 차례대로 `GitHub.com`, `HTTPS`, `Y`, `Login with a web browser` 를 선택 후 브라우저에 one-time code 를 붙여 넣는다.
-![img_1.png](https://github.com/zhtmr/static-files-for-posting/blob/main/20240115/gh-cli.png?raw=true){: .align-center}
+![img_1.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240115/gh-cli.png?raw=true){: .align-center}
 
 # npm script 이용
 매번 일일이 `gh workflow run blogposts --ref master` 치는게 귀찮으므로 `npm init`으로 package.json 파일 만든 후 `script` 태그 안에 넣어주자.
