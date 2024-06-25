@@ -33,7 +33,7 @@ use_math: true
 <summary>적용 전 코드보기</summary>
 <div markdown="1">
 
-## LoginHandler
+### LoginHandler
 {:.no_toc}
 
 ```java
@@ -55,7 +55,7 @@ public class LoginHandler {
     }
 }
 ```
-## UserDetails
+### UserDetails
 {:.no_toc}
 
 ```java
@@ -68,7 +68,7 @@ public interface UserDetails {
 }
 
 ```
-## UserDetailsService
+### UserDetailsService
 {:.no_toc}
 
 ```java
@@ -79,7 +79,7 @@ public interface UserDetailsService {
 }
 ```
 
-## Account
+### Account
 {:.no_toc}
 
 ```java
@@ -118,7 +118,7 @@ public class Account {
 }
 ```
 
-## AccountService
+### AccountService
 {:.no_toc}
 
 ```java
@@ -167,7 +167,7 @@ Adapter 클래스는 Adaptee 를 포함하도록 만든다.
 <div markdown="1">
 
 
-## AccountUserDetailsService
+### AccountUserDetailsService
 
 `UserDetails` 구현체에서 기존에 쓰던 `AccountService` 객체를 사용하도록 한다.
 이 객체는 기존 서비스의 반환값을 Target 인터페이스 규격에 맞춰 반환 하는 역할을 한다.
@@ -188,7 +188,7 @@ public class AccountUserDetailsService implements UserDetailsService {
 }
 ```
 
-## AccountUserDetails
+### AccountUserDetails
 
 ```java
 public class AccountUserDetails implements UserDetails {
@@ -211,7 +211,7 @@ public class AccountUserDetails implements UserDetails {
 }
 ```
 
-## Client
+### Client
 
 ```java
 public class App {
@@ -279,7 +279,7 @@ Spring MVC 에는 `DispatcherServlet` 이라는 프론트 컨트롤러 역할을
 <div markdown="1">
 
 
-## DispatcherServlet - doDispatch
+### DispatcherServlet - doDispatch
 ```java
 protected void doDispatch(HttpServletRequest request, HttpServletResponse response) throws Exception {
   HttpServletRequest processedRequest = request;
