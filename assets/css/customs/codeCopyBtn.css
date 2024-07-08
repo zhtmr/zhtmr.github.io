@@ -1,0 +1,292 @@
+/*!* 코드블럭 복사버튼 스타일 *!*/
+/*pre {*/
+/*  position: relative;*/
+/*  overflow: visible;*/
+/*  display: block;*/
+/*  font-family: monospace;*/
+/*  line-height: normal;*/
+/*  padding-left: 0px;*/
+/*  padding-right: 0px;*/
+/*  white-space: nowrap;*/
+/*  margin-top: 0px;*/
+/*  margin-bottom: 20px;*/
+
+/*}*/
+
+/*pre code {*/
+/*  line-height: 23px;*/
+/*  margin: 0;*/
+/*  font-size: 0.6em;*/
+/*  letter-spacing: -0.6pt;*/
+/*  font-family: "menlo";*/
+/*  border-radius: 0px;*/
+/*}*/
+
+/*@media (min-width:992px) {*/
+/*  pre code {*/
+/*    font-size: 0.9em;*/
+/*  }*/
+/*}*/
+
+/*!*코드블럭 버튼 애니메이션*!*/
+/*@keyframes copy-btn-ani {*/
+/*  25% {*/
+/*    transform: rotate(0deg) scale(1.05);*/
+/*  }*/
+
+/*  50% {*/
+/*    transform: rotate(0deg) scale(1);*/
+/*  }*/
+
+/*  75% {*/
+/*    transform: rotate(0deg) scale(1.05);*/
+/*  }*/
+/*}*/
+
+/*.dark-mode pre .copy-btn {*/
+/*  background: #1a1a1a9c;*/
+/*}*/
+/*pre .copy-btn {*/
+/*  -webkit-transition: opacity .3s ease-in-out;*/
+/*  -o-transition: opacity .3s ease-in-out;*/
+/*  transition: opacity .3s ease-in-out;*/
+/*  opacity: 0;*/
+/*  position: absolute;*/
+/*  background: #5757579c;*/
+/*  border: 1px solid #575757;*/
+/*  border-radius: 20px;*/
+/*  right: 18px;*/
+/*  top: 17px;*/
+/*}*/
+
+/*.copy-btn:hover {*/
+/*  animation: copy-btn-ani 0.8s linear 1;*/
+/*}*/
+
+/*pre:hover .copy-btn,*/
+/*pre .copy-btn:focus {*/
+/*  opacity: 1;*/
+/*}*/
+
+/*.clippy {*/
+/*  margin: 5px 5px 1px 5px;*/
+/*  position: relative;*/
+/*  top: 0px;*/
+/*  filter: invert();*/
+/*}*/
+
+/*.copy-btn[disabled] .clippy {*/
+/*  opacity: .3*/
+/*}*/
+
+/*code[class*="language-"],*/
+/*pre[class*="language-"] {*/
+/*  color: black;*/
+/*  background: none;*/
+/*  text-shadow: 0 1px white;*/
+/*  font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;*/
+/*  text-align: left;*/
+/*  white-space: pre;*/
+/*  word-spacing: normal;*/
+/*  word-break: normal;*/
+/*  word-wrap: normal;*/
+/*  line-height: 1.5;*/
+/*  -moz-tab-size: 4;*/
+/*  -o-tab-size: 4;*/
+/*  tab-size: 5;*/
+/*}*/
+
+/*pre[class*="language-"]::-moz-selection,*/
+/*pre[class*="language-"]::-moz-selection,*/
+/*code[class*="language-"]::-moz-selection,*/
+/*code[class*="language-"]::-moz-selection {*/
+/*  text-shadow: none;*/
+/*  background: #b3d4fc;*/
+/*}*/
+
+/*pre[class*="language-"]::selection,*/
+/*pre[class*="language-"]::selection,*/
+/*code[class*="language-"]::selection,*/
+/*code[class*="language-"]::selection {*/
+/*  text-shadow: none;*/
+/*  background: #b3d4fc;*/
+/*}*/
+
+/*@media print {*/
+
+/*  code[class*="language-"],*/
+/*  pre[class*="language-"] {*/
+/*    text-shadow: none;*/
+/*  }*/
+/*}*/
+
+/*!*코드블럭 복사버튼 클릭시 텍스트*!*/
+/*.tooltipped {*/
+/*  position: relative*/
+/*}*/
+
+/*.tooltipped:after {*/
+/*  position: absolute;*/
+/*  z-index: 1000000;*/
+/*  display: none;*/
+/*  padding: 5px 8px;*/
+/*  font: normal normal 11px/1.5 Helvetica, arial, nimbussansl, liberationsans, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";*/
+/*  color: #fff;*/
+/*  text-align: center;*/
+/*  text-decoration: none;*/
+/*  text-shadow: none;*/
+/*  text-transform: none;*/
+/*  letter-spacing: normal;*/
+/*  word-wrap: break-word;*/
+/*  white-space: pre;*/
+/*  pointer-events: none;*/
+/*  content: attr(aria-label);*/
+/*  background: rgb(142 89 55 / 80%);*/
+/*  border-radius: 3px;*/
+/*  -webkit-font-smoothing: subpixel-antialiased*/
+/*}*/
+
+/*.tooltipped:before {*/
+/*  position: absolute;*/
+/*  z-index: 1000001;*/
+/*  display: none;*/
+/*  width: 0;*/
+/*  height: 0;*/
+/*  color: rgba(0, 0, 0, .8);*/
+/*  pointer-events: none;*/
+/*  content: "";*/
+/*  border: 5px solid transparent*/
+/*}*/
+
+/*.tooltipped:hover:before,*/
+/*.tooltipped:hover:after,*/
+/*.tooltipped:active:before,*/
+/*.tooltipped:active:after,*/
+/*.tooltipped:focus:before,*/
+/*.tooltipped:focus:after {*/
+/*  display: inline-block;*/
+/*  text-decoration: none*/
+/*}*/
+
+/*.tooltipped-multiline:hover:after,*/
+/*.tooltipped-multiline:active:after,*/
+/*.tooltipped-multiline:focus:after {*/
+/*  display: table-cell*/
+/*}*/
+
+/*.tooltipped-s:after,*/
+/*.tooltipped-se:after,*/
+/*.tooltipped-sw:after {*/
+/*  top: 100%;*/
+/*  right: 50%;*/
+/*  margin-top: 5px*/
+/*}*/
+
+/*.tooltipped-s:before,*/
+/*.tooltipped-se:before,*/
+/*.tooltipped-sw:before {*/
+/*  top: auto;*/
+/*  right: 50%;*/
+/*  bottom: -5px;*/
+/*  margin-right: -5px;*/
+/*  border-bottom-color: rgb(142 89 55 / 80%);*/
+/*}*/
+
+/*.tooltipped-se:after {*/
+/*  right: auto;*/
+/*  left: 50%;*/
+/*  margin-left: -15px*/
+/*}*/
+
+/*.tooltipped-sw:after {*/
+/*  margin-right: -15px*/
+/*}*/
+
+/*.tooltipped-n:after,*/
+/*.tooltipped-ne:after,*/
+/*.tooltipped-nw:after {*/
+/*  right: 50%;*/
+/*  bottom: 100%;*/
+/*  margin-bottom: 5px*/
+/*}*/
+
+/*.tooltipped-n:before,*/
+/*.tooltipped-ne:before,*/
+/*.tooltipped-nw:before {*/
+/*  top: -5px;*/
+/*  right: 50%;*/
+/*  bottom: auto;*/
+/*  margin-right: -5px;*/
+/*  border-top-color: rgba(0, 0, 0, .8)*/
+/*}*/
+
+/*.tooltipped-ne:after {*/
+/*  right: auto;*/
+/*  left: 50%;*/
+/*  margin-left: -15px*/
+/*}*/
+
+/*.tooltipped-nw:after {*/
+/*  margin-right: -15px*/
+/*}*/
+
+/*.tooltipped-s:after,*/
+/*.tooltipped-n:after {*/
+/*  -webkit-transform: translateX(50%);*/
+/*  -ms-transform: translateX(50%);*/
+/*  transform: translateX(50%)*/
+/*}*/
+
+/*.tooltipped-w:after {*/
+/*  right: 100%;*/
+/*  bottom: 50%;*/
+/*  margin-right: 5px;*/
+/*  -webkit-transform: translateY(50%);*/
+/*  -ms-transform: translateY(50%);*/
+/*  transform: translateY(50%)*/
+/*}*/
+
+/*.tooltipped-w:before {*/
+/*  top: 50%;*/
+/*  bottom: 50%;*/
+/*  left: -5px;*/
+/*  margin-top: -5px;*/
+/*  border-left-color: rgba(0, 0, 0, .8)*/
+/*}*/
+
+/*.tooltipped-e:after {*/
+/*  bottom: 50%;*/
+/*  left: 100%;*/
+/*  margin-left: 5px;*/
+/*  -webkit-transform: translateY(50%);*/
+/*  -ms-transform: translateY(50%);*/
+/*  transform: translateY(50%)*/
+/*}*/
+
+/*.tooltipped-e:before {*/
+/*  top: 50%;*/
+/*  right: -5px;*/
+/*  bottom: 50%;*/
+/*  margin-top: -5px;*/
+/*  border-right-color: rgba(0, 0, 0, .8)*/
+/*}*/
+
+/*.tooltipped-multiline:after {*/
+/*  width: -webkit-max-content;*/
+/*  width: -moz-max-content;*/
+/*  width: max-content;*/
+/*  max-width: 250px;*/
+/*  word-break: break-word;*/
+/*  word-wrap: normal;*/
+/*  white-space: pre-line;*/
+/*  border-collapse: separate*/
+/*}*/
+
+/*.tooltipped-multiline.tooltipped-s:after,*/
+/*.tooltipped-multiline.tooltipped-n:after {*/
+/*  right: auto;*/
+/*  left: 50%;*/
+/*  -webkit-transform: translateX(-50%);*/
+/*  -ms-transform: translateX(-50%);*/
+/*  transform: translateX(-50%)*/
+/*}*/
