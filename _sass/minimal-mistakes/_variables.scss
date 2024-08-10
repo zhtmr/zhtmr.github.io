@@ -16,10 +16,12 @@ $indent-var: 1.3em !default;
 //$cookie-run: CookieRun-Regular, 'CookieRun Regular';
 $gmarket: "GmarketSansMedium";
 $hanna: "BMHANNAPro";
-$serif:   $gmarket, Georgia, Times, serif !default;
-$sans-serif: $gmarket, -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
+$suit: 'SUIT';
+$pretendard: 'Pretendard';
+$serif: $pretendard, $suit, $gmarket, Georgia, Times, serif !default;
+$sans-serif: $pretendard, $suit, $gmarket, -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
 "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace:  $gmarket, 'NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
+$monospace: $pretendard, $suit, $gmarket, 'NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
 $D2coding: D2Coding, 'D2 coding','NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
 $Ubuntu: 'Ubuntu Mono', Monaco, Consolas, "Lucida Console", monospace !default;
 $NotoSansKR: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
