@@ -13,12 +13,13 @@ $paragraph-indent: false !default; // true, false (default)
 $indent-var: 1.3em !default;
 
 /* system typefaces */
-$cookie-run: CookieRun-Regular, 'CookieRun Regular';
-$gmarket: GmarketSansMedium;
-$serif: Georgia, Times, serif !default;
+//$cookie-run: CookieRun-Regular, 'CookieRun Regular';
+$gmarket: "GmarketSansMedium";
+$hanna: "BMHANNAPro";
+$serif:   $gmarket, Georgia, Times, serif !default;
 $sans-serif: $gmarket, -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
 "Helvetica Neue", "Lucida Grande", Arial, sans-serif !default;
-$monospace: 'NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
+$monospace:  $gmarket, 'NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
 $D2coding: D2Coding, 'D2 coding','NanumGothicCoding', Monaco, Consolas, "Lucida Console", monospace !default;
 $Ubuntu: 'Ubuntu Mono', Monaco, Consolas, "Lucida Console", monospace !default;
 $NotoSansKR: -apple-system, BlinkMacSystemFont, "Noto Sans KR", "Roboto", "Segoe UI",
