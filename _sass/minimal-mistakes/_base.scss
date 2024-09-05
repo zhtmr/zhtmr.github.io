@@ -125,6 +125,10 @@ blockquote {
       padding-right: 5px;
     }
   }
+
+  //p {
+  //  margin-bottom: 0 !important;
+  //}
 }
 
 /* links */
@@ -527,4 +531,9 @@ boj-problem img {
 tier-icon img {
   width: 0.95em;
   margin-top: -0.05em;
+}
+
+boj-problem img {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
 }
