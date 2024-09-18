@@ -6,7 +6,7 @@ excerpt: ""
 categories:
   - AWS
 tags:
-  - [ 'AWS', 'Lambda', 'dynamoDB', 'API Gateway', 'S3' ]
+  - [ 'AWS', 'Lambda', 'DynamoDB', 'API Gateway', 'S3' ]
 use_math: true
 ---
 
