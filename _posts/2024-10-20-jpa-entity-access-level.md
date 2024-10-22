@@ -87,7 +87,7 @@ JPA 에서 다대일 연관관계를 맺을때 N + 1 문제를 피하기 위해 
 Order findOrder = em.find(Order.class, id);  // 1
 findOrder.getMember().getName();   // 2
 ```
-위 코드에서 getMember() 를 호출하는 시점에 실제로 `select * from member where memberId = ?` 쿼리가 실행된다.
+위 코드에서 getMember().getName() 을 호출하는 시점에 실제로 `select * from member where memberId = ?` 쿼리가 실행된다.
 즉, 최초 findOrder 만 조회한 상태(1번) 일때는 Order 엔티티 안에 member 엔티티가 없다는 의미가 된다.
 
 그러나 그렇게 되는 경우 위 코드는 NullPointerException 오류가 발생할 것이다. null 에다가 getName() 은 불가능하기 때문.
