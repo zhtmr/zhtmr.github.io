@@ -106,7 +106,7 @@ JPA 는 이런 상황을 방지하기 위해 **Lazy 로딩의 대상이 되는 M
 
 정리하자면 JPA 에서 엔티티는 Public 이거나 Protected 생성자만을 가져아 한다.
 
-> findAll() 같은 리스트 조회 쿼리는 JPQL 로 바로 DB 로 쿼리가 날아가기 때문에 엔티티 로딩 전략에 영향받지 않음. 
+>  ✅️ findAll() 같은 리스트 조회 쿼리는 JPQL 로 바로 DB 로 쿼리가 날아가기 때문에 엔티티 로딩 전략에 영향받지 않음. 
 > 이런 경우엔 @ManyToOne 관계는 fetch join 으로 가져오고, @OneToMany 관계는 batch size 설정을 통해 in() 쿼리로 가져오면 쿼리 호출 횟수를 최소화 할 수 있다.
 
 
