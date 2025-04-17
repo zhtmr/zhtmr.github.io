@@ -38,12 +38,12 @@ github flow 를 이용해 개발하게 되면 Pull Request 생성이 필수다. 
 
 
 ```yml
-      - uses: actions/checkout@v4
+- uses: actions/checkout@v4
 
-      # Make changes to pull request here
+# Make changes to pull request here
 
-      - name: Create Pull Request
-        uses: peter-evans/create-pull-request@v7
+- name: Create Pull Request
+  uses: peter-evans/create-pull-request@v7
 ```
 
 다른 블로그나 workflow 가이드를 봐도 굉장히 사용법이 굉장히 간단해 보인다. 바로 프로젝트에 적용해 봤다.
