@@ -1,7 +1,7 @@
 ---
 published: true
 layout: single
-title: "[Github Action] 자동 PR 생성 및 병합"
+title: "[Github Action] PR(Pull Request) 생성 및 병합 자동화 하기"
 excerpt: ""
 categories:
   - Github
