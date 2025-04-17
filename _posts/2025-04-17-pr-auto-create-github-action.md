@@ -53,6 +53,7 @@ title 은 단순히 작업 브랜치에서 main 브랜치로 푸시한다는 것
 assignees 의 경우 로컬에서 push 한 사람의 github 계정이 찍혀야 하기 때문에 {% raw %}`${{ github.actor }}`{% endraw %} 로 작성하고, reviewers 는 팀원 전체가 선택되어야 하므로 github var 에 직접 REVIEWERS 라는 이름으로 인원수에 맞게 `,` 로 구분해 등록했다.
 ![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.55.01.png?raw=true)
 
+{% raw %}
 ```yml
 
 name: Auto PR and Merge
@@ -87,6 +88,7 @@ jobs:
           reviewers: ${{ vars.REVIEWERS }}
           draft: false
 ```
+{% endraw %}
 
 이대로 만들고 로컬에서 push 하면 github 에 자동으로 PR 이 생성될 줄 알았는데, 자동으로 생성되지도 않을 뿐더러 수동으로 생성해도 아무런 변경사항이 없어 main 브랜치에 병합을 할 수 없는 상황이었다. 
 
@@ -119,6 +121,7 @@ fatal: remotes/origin/main...remotes/origin/sw-test4: no merge base
 
 아마 workflow 가 동작하면서 내부적으로 github 액션을 트리거 한 *branch 의 전체 경로*를 필요로 하는 것 같았다. GPT 에 물어보니 `github.event.ref` 방식으로 전체 경로를 가져올 수 있다고 해서 해당 방법으로 다시 작성해 봤다.
 
+{% raw %}
 ```yml
 jobs:
   auto-pr:
@@ -144,6 +147,7 @@ jobs:
           reviewers: ${{ vars.REVIEWERS }}
           draft: false
 ```
+{% endraw %}
 
 ### github token 문제
 이번엔 드디어 자동으로 PR 이 생성되었다! 
