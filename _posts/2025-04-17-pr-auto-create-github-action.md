@@ -4,9 +4,9 @@ layout: single
 title: "[Github Action] 자동 PR 생성 및 병합"
 excerpt: ""
 categories:
-  - Github Action
+  - Github
 tags:
-  - ['Github Action']
+  - ['Github']
 use_math: false
 ---
 
@@ -320,8 +320,6 @@ github actions marketplace 에 같은 개발자가 만든 [automerge](https://gi
 
 
 ## reference
-{% capture notice-2 %}
 - [https://github.com/peter-evans/create-pull-request](https://github.com/peter-evans/create-pull-request)
 - [https://github.com/marketplace/actions/enable-pull-request-automerge#enable-pull-request-auto-merge](https://github.com/marketplace/actions/enable-pull-request-automerge#enable-pull-request-auto-merge)
 - [https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/incorporating-changes-from-a-pull-request/automatically-merging-a-pull-request)
-{% endcapture %}
