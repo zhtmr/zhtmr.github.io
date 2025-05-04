@@ -11,7 +11,7 @@ use_math: true
 ---
 
 # 어댑터 패턴
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240624/%EC%96%B4%EB%8C%91%ED%84%B0%ED%8C%A8%ED%84%B4_%EC%82%AC%EC%A7%841.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20240624/%EC%96%B4%EB%8C%91%ED%84%B0%ED%8C%A8%ED%84%B4_%EC%82%AC%EC%A7%841.png?raw=true)
 *출처: https://refactoring.guru/ko/design-patterns/adapter*
 
 ## 정의
@@ -19,13 +19,13 @@ use_math: true
 - 클라이언트가 사용하는 인터페이스를 따르지 않는 기존 코드를 재사용할 수 있게 해준다.
 
 ## 주요 구성 요소
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240624/adapter-pattern.drawio.png?raw=true){: .align-center}
+![](https://zhtmr.github.io/static-files-for-posting/20240624/adapter-pattern.drawio.png?raw=true){: .align-center}
 
 
 클라이언트는 `Target` 인터페이스에만 의존한다. 그리고 기존에 사용하던 코드(`Adaptee`)와 `Target` 사이에 `Adapter`라는 구현체가 있다. 여기서 `Adapter` 의 역할은 기존에 사용하던 코드를 클라이언트가 의존하는 타입의 객체로 **변환시켜 주는 역할**을 한다.
 
 ## 어댑터 패턴 적용 전
-![img.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240624/%ED%8C%A8%ED%82%A4%EC%A7%80%EA%B5%AC%EC%A1%B0.png?raw=true){: .align-center}
+![img.png](https://zhtmr.github.io/static-files-for-posting/20240624/%ED%8C%A8%ED%82%A4%EC%A7%80%EA%B5%AC%EC%A1%B0.png?raw=true){: .align-center}
 *어댑터 패턴 적용 전 패키지 구조*
 
 
@@ -245,7 +245,7 @@ Adaptee 를 호출해 나온 결과를 클라이언트가 원하는 타입인 Ta
 List<String> strings = Arrays.asList("a", "b", "c");
 ```
 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240624/adapter_in_java.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20240624/adapter_in_java.png?raw=true)
 
 ### Enumeration()
 ```java
@@ -382,7 +382,7 @@ public interface HandlerAdapter {
 ```
 그리고 그 중 요청에 대해 @RequestMapping 어노테이션을 처리하는 핸들러인 `RequestMappingHandlerAdapter` 이 있다는 것을 알 수 있다.
 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240624/HandlerAdapter.png?raw=true){: .align-center}
+![](https://zhtmr.github.io/static-files-for-posting/20240624/HandlerAdapter.png?raw=true){: .align-center}
 *다양한 종류의 요청을 처리하는 핸들러가 있다.*
 
 

@@ -20,7 +20,7 @@ use_math: true
 - 복제 기능을 갖추고 있는 기존 인스턴스를 프로토타입으로 사용해 새 인스턴스를 만들 수 있다.
 
 ## 주요 구성 요소
-![img](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240629/prototype-pattern.drawio.png?raw=true){: .align-center}
+![img](https://zhtmr.github.io/static-files-for-posting/20240629/prototype-pattern.drawio.png?raw=true){: .align-center}
 
 
 
@@ -342,7 +342,7 @@ Cloneable 인터페이스가 구현되어 있는 클래스는 clone() 메소드�
 <div markdown="1">
 
 Java Native Interface 는 java 구현되지 않은 일부 프로세스를 가능하게 만든다. 예를 들어 하드웨어 조작 명령이나 직접적인 OS API 명령
-![img](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240629/jni.png?raw=true){: .align-center}
+![img](https://zhtmr.github.io/static-files-for-posting/20240629/jni.png?raw=true){: .align-center}
 *출처 : https://medium.com/@sarafanshul/jni-101-introduction-to-java-native-interface-8a1256ca4d8e*
 </div>
 </details>
@@ -370,7 +370,7 @@ Java Native Interface 는 java 구현되지 않은 일부 프로세스를 가능
 ### ArrayList.clone()
 ArrayList 를 복사할때 clone() 메소드를 사용하면 된다.
 
-![img.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240629/arraylist-cloneable.png?raw=true){: .align-center}
+![img.png](https://zhtmr.github.io/static-files-for-posting/20240629/arraylist-cloneable.png?raw=true){: .align-center}
 *ArrayList 는 Cloneable 인터페이스를 구현하고 있다.*
 
 그러나 이 방법은 잘 쓰이지 않는다. 왜냐하면 보통 ArrayList 를 받을때 아래처럼 인터페이스 타입으로 받기 때문이다.

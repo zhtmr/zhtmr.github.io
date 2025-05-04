@@ -14,8 +14,7 @@ use_math: true
 
 
 ## 실습 과정 요약
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/img_3.png?raw=true){: .align-center}
-
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/img_3.png?raw=true){: .align-center}
 
 ## 각 서비스의 역할
 - **S3** : 정적 웹사이트 호스팅
@@ -25,14 +24,14 @@ use_math: true
 
 ## DynamoDB 생성
 RDBMS 의 경우, 스키마를 정의하고 이 스키마를 이용해 데이터를 저장하게 된다. 그러나 DynamoDB 와 같은 NoSQL 데이터베이스는 스키마를 정의할 필요 없이 key-value 형태로 자유롭게 데이터를 저장할 수 있다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/dynamo-create.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/dynamo-create.png?raw=true){: .align-center}
 
 테이블 생성 버튼을 눌러 테이블 이름과 파티션 키를 입력 한다. 파티션 키는 검색에 필요한 키값으로 필수적으로 입력해야 한다.
 - 테이블 이름 : `hello-member`
 - 파티션 키 : `name`
 
 ## Lambda 생성
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda.png?raw=true){: .align-center}
 *Lambda 를 이용해 백엔드 서비스 코드를 만들수 있다.*
 
 AWS 의 대표적인 서버리스 서비스. 서버에 대한 설정이나 관리를 고민할 필요 없이 간단하게 서버를 만들 수 있다. 예를 들어 많은 요청 발생 시 자동으로 확장되고, 관리되므로 서비스에만 집중할 수 있다.
@@ -41,21 +40,21 @@ AWS 의 대표적인 서버리스 서비스. 서버에 대한 설정이나 관�
 
 
 함수 생성 버튼을 눌러 아래와 같이 입력한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda-create-func.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda-create-func.png?raw=true){: .align-center}
 
 - 선택 옵션 : `새로 작성`
 - 함수 이름 : `api-service-create`
 - 런타임 : `Python 3.9`
 
 함수에 대한 권한 설정 부분은 아래와 같이 진행한다.
-![img_4.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda-permission.png?raw=true){: .align-center}
+![img_4.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda-permission.png?raw=true){: .align-center}
 
 이 함수는 추후 DynamoDB 에 연결할 예정이다. AWS 서비스끼리 서로 연결하거나 이용하거나 호출하거나 할 때에는 권한이 필요하다.
 - 역할 이름 : `my-lambda-role`
 - 정책 템플릿 : `단순 마이크로서비스 권한 - DynamoDB`
 
 코드 부분에 아래와 같이 입력 후 `Deploy` 버튼을 누른다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda-code.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda-code.png?raw=true){: .align-center}
 
 <details>
 <summary>코드보기</summary>
@@ -104,35 +103,35 @@ AWS 의 대표적인 서버리스 서비스. 서버에 대한 설정이나 관�
 
 
 `Test` 버튼을 눌러 아래와 같이 테스트 이벤트를 구성 후 저장 버튼을 누른다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda-test-conf.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda-test-conf.png?raw=true){: .align-center}
 
 - 이벤트 이름 :  `my-api-test`
 - 템플릿 : `hello-world`
 
 테스트 결과가 아래와 같은 형식으로 나온다면 제대로 설정된 것이다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/lambda-test-res.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/lambda-test-res.png?raw=true){: .align-center}
 
 이제 DynamoDB 에 데이터가 잘 들어갔는지 확인해보자. DynamoDB 로 이동해 `hello-member` 테이블을 누른다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/dynamo-table.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/dynamo-table.png?raw=true){: .align-center}
 
 표 항목 탐색을 누른다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/dynamo-table-search.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/dynamo-table-search.png?raw=true){: .align-center}
 
 아래와 같이 Lambda 의 코드가 실행되어 DynamoDB 에 값이 잘 들어가 있다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/dynamo-table-data.png?raw=true)
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/dynamo-table-data.png?raw=true)
 
 여기까지 Lambda 와 DynamoDB 를 만들고, 잘 동작되는 것을 확인했다. 
 이제 클라이언트에서 이 Lambda 의 함수를 호출할 수 있도록 엔드포인트를 제공해야 한다.
 
 ## API Gateway 구성하기
 서비스에서 API Gateway 를 검색 후 REST API 유형을 선택한다. 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-init.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-init.png?raw=true){: .align-center}
 
 새 API 를 선택하고 API 이름에 `my-api` 를 입력한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-create.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-create.png?raw=true){: .align-center}
 
 `my-api` 선택 후 메서드를 생성한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-method-create.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-method-create.png?raw=true){: .align-center}
 
 아래와 같이 메서드 세부 정보를 설정 후 메서드를 생성한다.
 - 메서드 유형 : `GET`
@@ -140,28 +139,28 @@ AWS 의 대표적인 서버리스 서비스. 서버에 대한 설정이나 관�
 - Lambda 프록시 통합 토글 `ON`
 - Lambda 함수 선택에서 기존에 만들어 두었던 `api-service-create` 를 선택한다.
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-method-create2.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-method-create2.png?raw=true){: .align-center}
 
 생성한 API의 리소스 메뉴에서 방금 생성한 GET 메서드를 누르면 이제는 오른쪽에 해당 메서드에 관련된 정보가 보이게 된다. 테스트 탭을 선택 후 테스트를 준비한다.
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-test.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-test.png?raw=true){: .align-center}
 
 
 테스트 버튼을 눌러 API 호출을 테스트 해본다. 서비스가 복잡해지면 Request Body 나 Header 에 값을 추가할 수도 있다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-test2.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-test2.png?raw=true){: .align-center}
 
 테스트 성공 시 상태 코드에 200 과 함께 응답 본문에 Lambda 함수 실행 결과가 올바르게 출력된다면 성공이다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-res.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-res.png?raw=true){: .align-center}
 
 ### CORS 설정
 API gateway 를 만들었지만, 바로 호출하면 CORS 관련 에러가 발생한다. 브라우저에서 실행하는 스크립트의 요청을 허용하려면 API에 대한 CORS(cross-origin resource sharing)를 구성해야한다.
 CORS는 다른 도메인에서 리소스를 요청할 때 발생하는 보안 정책이다. API Gateway에 메소드를 만들었다 하더라도, 기본적으로는 CORS가 허용되지 않으므로 브라우저에서 다른 도메인(예: 클라이언트 서버와 API 서버의 도메인이 다를 경우)으로 요청을 보낼 때 문제가 발생할 수 있다.
 
 리소스 메뉴에서 `/` 경로를 선택 후 CORS 를 활성화 한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-cors-enable.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-cors-enable.png?raw=true){: .align-center}
 
 CORS 설정 화면에서 Access-Control-Allow-Methods 에 GET 메서드를 선택한다. GET 요청에 대해 리소스 접근을 허용한다. 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-cors-setting.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-cors-setting.png?raw=true){: .align-center}
 
 참고로 위 사진에서 Access-Control-Allow-Methods 항목에 OPTIONS 메소드가 기본값으로 포함되어 있는데, 이는 프리플라이트 요청(Preflight Request) 이다. 클라이언트에서 요청하려는 URL이 외부 도메인일 경우, 
 브라우저는 안전하지 않은 HTTP 요청(예: POST, PUT, DELETE)을 보내기 전에 OPTIONS 메소드를 사용하여 서버에 프리플라이트 요청을 보낸다. 서버가 이 요청에 대해 적절한 응답을 하지 않으면 브라우저는 CORS 에러를 발생시킨다. 실제 요청이 유효한지 서버가 미리 파악할 수 있도록 하는 수단이다.
@@ -169,24 +168,24 @@ CORS 설정 화면에서 Access-Control-Allow-Methods 에 GET 메서드를 선�
 CORS 설정을 마쳤으면 API 배포 버튼을 눌러 이 api 를 실제 사용할 수 있게 준비한다.
 - 스테이지 : *새 스테이지*
 - 스테이지 이름 : `dev`
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-deploy.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=truehttps://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-deploy.png?raw=true){: .align-center}
 
 배포가 완료되면 호출 URL 이 표시된다. 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-url.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-url.png?raw=true){: .align-center}
 
 이 URL 을 브라우저에 붙여넣고 호출하면 아래와 같은 응답을 얻을 수 있다.
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/api-gateway-result.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/api-gateway-result.png?raw=true){: .align-center}
 
 Lambda 에 API gateway 를 연결해 클라이언트에서 접근 가능한 엔드포인트를 만드는 작업이 완료되었습니다.
 이제 이 데이터를 S3 의 정적 웹사이트 호스팅 기능을 사용해 html 페이지에 표시하는 작업을 진행해보겠습니다. 
 
 ## S3 웹서버 기능 사용하기
 AWS 서비스에서 S3 를 검색 후 버킷을 생성한다. 버킷의 이름은 고유해야 한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-create-bucket.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-create-bucket.png?raw=true){: .align-center}
 
 아래쪽으로 내려 퍼블릭 엑세스 차단 설정을 해제한다. 정적 웹 호스팅 용도로 사용하기 위해 모든 접근을 허용해야 클라이언트(브라우저)에서 html 파일을 내려받을 수 있다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-public-access.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-public-access.png?raw=true){: .align-center}
 
 버킷 생성을 누르고 생성이 완료되면 해당 버킷을 눌러 들어 간다. 그 후 아래와 같은 html 코드를 index.html 파일로 만들어 버킷에 업로드 한다.
 
@@ -264,21 +263,21 @@ AWS 서비스에서 S3 를 검색 후 버킷을 생성한다. 버킷의 이름�
 </details>
 
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-upload-file.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-upload-file.png?raw=true){: .align-center}
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-upload-file2.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-upload-file2.png?raw=true){: .align-center}
 
 index.html 파일을 업로드 했으면 정적 웹사이트 호스팅 기능을 활성화 하고, 권한을 부여해야 한다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-property.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-property.png?raw=true){: .align-center}
 
 속성 탭에서 맨 아래쪽으로 스크롤하면 정적 웹 사이트 호스팅 기능이 있다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-static-website-hosting1.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-static-website-hosting1.png?raw=true){: .align-center}
 
 편집을 눌러 활성화 한다. 웹사이트 처음 진입 시 기본 페이지가 될 파일을 입력한다.(index.html)
-![img_5.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-static-website-hosting2.png?raw=true){: .align-center}
+![img_5.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-static-website-hosting2.png?raw=true){: .align-center}
 
 변경 사항 저장을 누르면 정적 웹 사이트 호스팅이 시작된다.
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-hosting.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-hosting.png?raw=true){: .align-center}
 
 그러나 해당 URL 클릭 시 아직 권한이 없어 접속이 안된다. 외부에서 파일을 읽어 들일수 있도록 권한을 부여해야 한다.
 다음 그림과 같이 권한 탭에서 **버킷 정책**에 JSON 으로 작성된 권한 설정을 해준다.
@@ -309,7 +308,7 @@ index.html 파일을 업로드 했으면 정적 웹사이트 호스팅 기능을
 </div>
 </details>
 
-![img_3.png](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20240917/s3-permission.png?raw=true){: .align-center}
+![img_3.png](https://zhtmr.github.io/static-files-for-posting/20240917/s3-permission.png?raw=true){: .align-center}
 
 권한 설정이 마무리되면 S3 호출 URL 로 이동한다. index.html 의 화면이 잘 나오고 버튼을 누를때마다 Lambda 로 ajax 호출해 데이터를 가져오는 것을 볼 수 있다.
 

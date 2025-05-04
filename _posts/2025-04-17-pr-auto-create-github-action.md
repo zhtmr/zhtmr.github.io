@@ -22,10 +22,10 @@ github flow 를 이용해 개발하게 되면 Pull Request 생성이 필수다. 
 
 ## PR 을 자동으로 생성하는 Action
 역시나.. 이미 Github Action marketplace 에는 PR 을 자동으로 생성해주는 workflow 가 오래전부터 사용되고 있었다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.29.42.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.29.42.png?raw=true)
 
 그 중 star 수가 가장 많고, Github staff 가 직접 만든 [Crate Pull Request](https://github.com/marketplace/actions/create-pull-request) 를 사용해보기로 했다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.38.19.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.38.19.png?raw=true)
 
 기본적인 작성법은 다음과 같다. 여기에 옵션으로 branch, base, title, body, labels, assignees, reviewers 등을 추가할 수 있도록 지원하고 있다.
 - branch: pr 시 작업 브랜치 (feature 브랜치 등)
@@ -51,7 +51,7 @@ github flow 를 이용해 개발하게 되면 Pull Request 생성이 필수다. 
 ## 문제
 title 은 단순히 작업 브랜치에서 main 브랜치로 푸시한다는 것을 표시하고, body 의 내용으로는 브랜치 푸시 상태와 커밋 메시지를 그대로 출력하고 싶었다.
 assignees 의 경우 로컬에서 push 한 사람의 github 계정이 찍혀야 하기 때문에 {% raw %}`${{ github.actor }}`{% endraw %} 로 작성하고, reviewers 는 팀원 전체가 선택되어야 하므로 github var 에 직접 REVIEWERS 라는 이름으로 인원수에 맞게 `,` 로 구분해 등록했다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.55.01.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%202.55.01.png?raw=true)
 
 {% raw %}
 ```yml
@@ -98,7 +98,7 @@ jobs:
 `Repository` > `Settings` > `Actions` > `General` 로 들어가게 되면 맨 아래 부분에 `Workflow permissions` 부분이 있다. 
 
 `Read and Write` 권한을 체크하고, 아래에 Github Actions 가 PR 을 만들 수 있는 권한도 체크한다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.04.53.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.04.53.png?raw=true)
 
 ### 잘못된 branch 옵션 사용
 이번엔 action 은 작동하지만 여전히 PR 자동 생성은 되지 않았다.
@@ -113,7 +113,7 @@ fatal: remotes/origin/main...remotes/origin/sw-test4: no merge base
 뭔가 branch 설정에 대한 이슈 같았다. 나도 내 문제를 [이슈](https://github.com/peter-evans/create-pull-request/issues/3912)로 남겨보기로 했다. 
 
 다행히 답변이 하루만에 도착해 확인해봤다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.24.56.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.24.56.png?raw=true)
 역시 `branch` 옵션의 사용 방법이 잘못되었다. `github.ref_name` 으로 사용하게 될 경우 branch 의 이름을 가져오게 된다. 
 예를 들어 로컬에서 `sw-test` 라는 브랜치 명으로 push 하게 되면 `sw-test` 라는 값이 저 변수 대신 들어가게 된다. 
 
@@ -151,7 +151,7 @@ jobs:
 
 ### github token 문제
 이번엔 드디어 자동으로 PR 이 생성되었다! 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.44.16.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%203.44.16.png?raw=true)
 
 그러나 이번에는 GitHub Actions Bot이 PR을 생성하면서, 코드를 push한 작성자조차도 스스로 approve(승인)할 수 있는 상황이 발생하게 되었다. 
 현재 branch protection rule 에 1명이 승인할 경우 merge 할 수 있도록 설정이 되어 있어, 이렇게 될 경우 의도와 다르게 상대방의 코드 리뷰 없이 코드 작성자가 스스로 병합하게 되는 상황이 발생할 수 있다.
@@ -161,13 +161,13 @@ jobs:
 
 #### ✅ Personal Access Token (PAT) 사용
 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.05.39.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.05.39.png?raw=true)
 
 [Create Pull Request 메뉴얼](https://github.com/peter-evans/create-pull-request?tab=readme-ov-file#branch-token)에 Personal Access Token (PAT) 사용 시 권한 설정에 대해 잘 나와 있어 `GH_TOKEN` 이라는 이름으로 토큰을 만들고 secrets 에 등록해 줬다.
 그리고 yml 파일 token 부분도 `secrets.GH_TOKEN` 으로 수정 후 다시 테스트 해봤다.
 
 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.11.45.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.11.45.png?raw=true)
 
 그러나 위 사진처럼 상대방이 작성한 PR 이 내 닉네임(zhtmr) 으로 올라갔다. 내 계정에서 만든 토큰(GH_TOKEN)을 사용했기 때문이다. 또한 옆 Reviewer 도 맞지 않게 출력된다.
 
@@ -181,7 +181,7 @@ jobs:
 
 ##### token 파싱
 먼저 PR 작성자 닉네임을 실제 코드를 push 한 계정으로 표시하기 위해선 프로젝트에 참여 중인 모두가 PAT 를 발급 받아야 한다고 생각했다. github 에서 발급받은 팀원들의 토큰을 secrets 에 모두 등록해 준다. (GH_TOKEN, GH_TOKEN_CM)
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.39.55.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%204.39.55.png?raw=true)
 
 그리고 이를 push 하는 계정에 따라 동적으로 선택해야 한다. 
 push 를 하는 계정에서 github action workflow 가 동작하기 때문에 파싱하는 로직이 필요하다. steps 부분에 아래 코드를 추가한다. 
@@ -266,15 +266,15 @@ ${{ secrets[steps.token-map.outputs.token_var] }}
 {% endraw %}
 
 
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.32.35.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.32.35.png?raw=true)
 정상적으로 잘 작동하는 것을 볼 수 있다.
 
 ### auto-merge
 하나 더 자동화 할 수 있는 부분이 있는데 바로 *merge 버튼을 클릭*하는 행위다. 보틍 merge 조건을 만족하게 되면 PR 작성자가 `Merge pull Request` 버튼을 직접 눌러 병합을 완료한다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.34.48.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.34.48.png?raw=true)
 
 github 에선 자체적으로 PR 의 요구사항을 만족하는 경우 auto-merge 를 수행하게 하는 옵션이 있다.
-![](https://github.com/zhtmr/static-files-for-posting/blob/main/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.58.43.png?raw=true)
+![](https://zhtmr.github.io/static-files-for-posting/20250417/%EC%8A%A4%ED%81%AC%EB%A6%B0%EC%83%B7%202025-04-17%20%EC%98%A4%ED%9B%84%205.58.43.png?raw=true)
 
 해당 옵션이 활성화된 상태에서 PR을 작성하게 되는 경우 `Enable auto-merge` 라는 버튼이 보인다.
 ![](https://docs.github.com/assets/cb-153682/mw-1440/images/help/pull_requests/enable-auto-merge-drop-down.webp)
