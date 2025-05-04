@@ -161,7 +161,7 @@ Object result = method.invoke(obj, arg1, arg2);
 ![](https://raw.githubusercontent.com/zhtmr/static-files-for-posting/86c762a09ac25be54594c256caff216706a8145b/20240117/previous-dao.png){: .align-center}
 *도메인이 새로 생기면 인터페이스와 구현체도 새로 만들어야했다.*
 
-![](https://zhtmr.github.io/static-files-for-posting/20240117/injection.png?raw=true){: .align-center}
+![](https://zhtmr.github.io/static-files-for-posting/images/20240117/injection.png?raw=true){: .align-center}
 *각 도메인 레퍼런스 타입에 맞는 dao 인스턴스를 직접 주입해줘야 했다.*
 
 

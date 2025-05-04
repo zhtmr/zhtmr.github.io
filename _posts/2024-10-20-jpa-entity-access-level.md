@@ -93,7 +93,7 @@ findOrder.getMember().getName();   // 2
 그러나 그렇게 되는 경우 위 코드는 NullPointerException 오류가 발생할 것이다. null 에다가 getName() 은 불가능하기 때문.
 JPA 는 이런 상황을 방지하기 위해 **Lazy 로딩의 대상이 되는 Member 엔티티**를 감싸는 프록시 객체를 만들어 우선 findOrder 객체를 만든다.
 
-![img.png](https://zhtmr.github.io/static-files-for-posting/20241020/img.png?raw=true){: .align-center}
+![img.png](https://zhtmr.github.io/static-files-for-posting/images/20241020/img.png?raw=true){: .align-center}
 *프록시 객체*
 
 프록시 객체는 내부에 Member 엔티티를 가지고 있는데, getName() 으로 실제 그 엔티티를 호출하는 시점에 DB 에 쿼리가 날아가고, Member 엔티티의 값이 채워진다.
@@ -101,7 +101,7 @@ JPA 는 이런 상황을 방지하기 위해 **Lazy 로딩의 대상이 되는 M
 런타임 환경에서 member 엔티티 객체를 생성하기 위해 리플렉션을 사용하게 되는 경우 기본 생성자가 필요하다. (이는 JPA 뿐만 아니라 Mybatis 에서 쿼리를 VO 에 매핑하는 경우에도 마찬가지다.)
 
 즉, 프록시 객체로 로딩되는 엔티티에 `@NoArgsConstructor(access = AccessLevel.PRIVATE)` 같이 외부에서 생성자를 사용할 수 없는 경우엔 애초에 오류가 발생한다.
-![img_1.png](https://zhtmr.github.io/static-files-for-posting/20241020/img_1.png?raw=true){: .align-center}
+![img_1.png](https://zhtmr.github.io/static-files-for-posting/images/20241020/img_1.png?raw=true){: .align-center}
 *생성자 접근 제한자는 public, protected 만 가능하다*
 
 정리하자면 JPA 에서 엔티티는 Public 이거나 Protected 생성자만을 가져아 한다.
