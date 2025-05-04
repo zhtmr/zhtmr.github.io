@@ -133,20 +133,20 @@ layout: default
       scrollSmoothOffset: -40,
     });
 
-    $(document).ready(function(){
-      $('.toc').addClass('toc-absolute');
-
-      var toc_top = $('.toc').offset().top - 165;
-      $(window).scroll(function() {
-        if ($(this).scrollTop() >= toc_top) {
-          $('.toc').addClass('toc-fixed');
-          $('.toc').removeClass('toc-absolute');
-        } else {
-          $('.toc').addClass('toc-absolute');
-          $('.toc').removeClass('toc-fixed');
-        }
-      });
-    });
+    // $(document).ready(function(){
+    //   $('.toc').addClass('toc-absolute');
+    //
+    //   var toc_top = $('.toc').offset().top - 165;
+    //   $(window).scroll(function() {
+    //     if ($(this).scrollTop() >= toc_top) {
+    //       $('.toc').addClass('toc-fixed');
+    //       $('.toc').removeClass('toc-absolute');
+    //     } else {
+    //       $('.toc').addClass('toc-absolute');
+    //       $('.toc').removeClass('toc-fixed');
+    //     }
+    //   });
+    // });
 
   </script>
 
