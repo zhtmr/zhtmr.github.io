@@ -255,12 +255,16 @@ html[data-theme="dark"] .theme-toggle .fa-moon { display: none; }
 .page__title a { color: var(--mono-text-strong); text-decoration: none; }
 
 .page__content { color: var(--mono-text); }
-.page__content p { line-height: 1.78; }
+.page__content p { line-height: 1.8; }
 .page__content h2 {
-  margin-top: 2.2em;
-  padding-bottom: 0.3em;
-  border-bottom: 1px solid var(--mono-border);
+  margin-top: 2.6em;
+  margin-bottom: 0.9em;
+  padding-bottom: 0;
+  border-bottom: none;
+  font-size: 1.6rem;
+  letter-spacing: -0.02em;
 }
+.page__content h3 { margin-top: 1.9em; margin-bottom: 0.6em; font-size: 1.25rem; }
 
 /* 카테고리/태그 칩 = 모노 */
 .page__taxonomy .page__taxonomy-item,
@@ -278,21 +282,63 @@ a.page__taxonomy-item {
 a.page__taxonomy-item:hover { color: var(--mono-accent); border-color: var(--mono-accent); background: var(--mono-accent-weak); }
 
 /* --------------------------------------------------------------------------
-   7. 코드 블록 — 1급 시민
+   7. 코드 블록 — 1급 시민 (다크 코드 카드 + 헤더 바)
    -------------------------------------------------------------------------- */
+:root { --mono-code-surface: #1f2228; --mono-code-header: #181b20; }
+
 div.highlighter-rouge,
 figure.highlight {
   position: relative;
-  background: var(--mono-code-bg);
+  background: var(--mono-code-surface) !important;
+  color: #c8ccd4;
   border: 1px solid var(--mono-border);
   border-radius: 10px;
+  overflow: hidden;
   box-shadow: none;
+  font-family: "JetBrains Mono", "D2Coding", monospace !important;
 }
-.page__content pre,
-.page__content code,
-div.highlighter-rouge,
-figure.highlight,
-.highlight { font-family: "JetBrains Mono", monospace; }
+div.highlighter-rouge pre,
+div.highlighter-rouge code,
+div.highlighter-rouge .highlight,
+figure.highlight pre,
+.rouge-table, td.rouge-code, td.rouge-code pre span,
+.page__content pre, .page__content code {
+  font-family: "JetBrains Mono", "D2Coding", monospace !important;
+}
+div.highlighter-rouge > .highlight > pre,
+div.highlighter-rouge pre.highlight { padding: 1em 1.1em; }
+
+/* JS(copy-button.js)가 삽입하는 헤더 바 */
+.code-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.5rem 0.9rem;
+  background: var(--mono-code-header);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+.code-header .code-lang {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #8b929e;
+}
+.code-header .copy-btn {
+  position: static;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #8b929e;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 6px;
+  padding: 0.18rem 0.55rem;
+  cursor: pointer;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.code-header .copy-btn:hover { color: #fff; border-color: rgba(255, 255, 255, 0.35); }
 
 /* 인라인 코드 */
 .page__content p > code,
@@ -305,18 +351,6 @@ figure.highlight,
   padding: 0.12em 0.4em;
   font-size: 0.86em;
 }
-
-/* 복사 버튼(copy-button.js 가 생성, 인라인 스타일은 JS 에서 모노로 교체) */
-.copy-btn {
-  font-family: "JetBrains Mono", monospace !important;
-  background: var(--mono-bg-elev) !important;
-  color: var(--mono-muted) !important;
-  border: 1px solid var(--mono-border) !important;
-  border-radius: 6px !important;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-.copy-btn:hover { color: var(--mono-text) !important; border-color: var(--mono-border-strong) !important; }
 
 /* --------------------------------------------------------------------------
    8. 인용/노트 콜아웃
@@ -339,13 +373,44 @@ figure.highlight,
 }
 
 /* --------------------------------------------------------------------------
-   9. TOC (tocbot)
+   9. TOC (tocbot) — Contents 라벨 + 모노 링크 + 활성 점
    -------------------------------------------------------------------------- */
-.toc-list a { color: var(--mono-faint) !important; font-size: 0.82rem; }
-.toc-list a:hover { color: var(--mono-text) !important; }
-.toc-list a.is-active-link,
-.toc-list li.is-active-li > a { color: var(--mono-accent) !important; font-weight: 600; }
-.toc-list .node-name--H1, .toc-list .node-name--H2, .toc-list .node-name--H3 { letter-spacing: 0; }
+.toc__label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--mono-faint);
+  margin-bottom: 1rem;
+}
+.toc, .toc-right { background: transparent !important; border: none !important; }
+.toc-list { list-style: none; margin: 0; padding: 0; }
+.toc-list .toc-list { margin-top: 0.5rem; }
+.toc-list-item { margin: 0 0 0.7rem; }
+.toc-list a.toc-link {
+  position: relative;
+  display: block;
+  padding-left: 0.85rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.72rem;
+  line-height: 1.45;
+  color: var(--mono-faint) !important;
+  text-decoration: none !important;
+  transition: color 0.15s ease;
+}
+.toc-list a.toc-link:hover { color: var(--mono-text) !important; }
+.toc-list a.toc-link.is-active-link { color: var(--mono-accent) !important; font-weight: 600; }
+.toc-list a.toc-link.is-active-link::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--mono-accent);
+}
+.toc-list a.toc-link.node-name--H3 { padding-left: 1.7rem; font-size: 0.68rem; }
 
 /* --------------------------------------------------------------------------
    10. 페이지네이션 / 버튼 / 관련 글
@@ -614,3 +679,86 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb { background-color: #3f3f46 !i
 .mono-author .author__urls li { margin: 0; font-size: 0.8em; }
 .mono-author .author__urls a { color: var(--mono-muted); }
 .mono-author .author__urls a:hover { color: var(--mono-accent); }
+
+/* ==========================================================================
+   14. 포스트 본문 디테일 — 태그 / 이전·다음 / 관련 글 (시안 정합)
+   ========================================================================== */
+/* 태그 = 모노 칩 ("태그:" 라벨·쉼표 숨김) */
+.page__taxonomy { margin: 0.5rem 0; }
+.page__taxonomy > strong { display: none; }
+.page__taxonomy .sep { display: none; }
+.page__taxonomy-item {
+  display: inline-block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.64rem;
+  text-transform: lowercase;
+  letter-spacing: 0.02em;
+  color: var(--mono-muted) !important;
+  background: var(--mono-surface);
+  border: 1px solid var(--mono-border);
+  border-radius: 9999px;
+  padding: 0.22rem 0.6rem;
+  margin: 0 0.35rem 0.4rem 0;
+  text-decoration: none !important;
+}
+.page__taxonomy-item::before { content: '#'; opacity: 0.55; }
+.page__taxonomy-item:hover {
+  color: var(--mono-accent) !important;
+  border-color: var(--mono-accent);
+  background: var(--mono-accent-weak);
+}
+
+/* 이전/다음 글 = 제목 카드 2열 */
+.pagination--posts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  float: none;
+  width: 100%;
+  margin: 2.5rem 0;
+}
+@media (max-width: 600px) { .pagination--posts { grid-template-columns: 1fr; } }
+.pagination--posts .pagination--pager {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.1rem 1.25rem;
+  margin: 0;
+  border: 1px solid var(--mono-border);
+  border-radius: 10px;
+  text-decoration: none !important;
+  background: transparent;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+.pagination--posts .pagination--pager:hover {
+  background: var(--mono-bg-elev);
+  border-color: var(--mono-border-strong);
+}
+.pagination--posts .pager--next { text-align: right; }
+.pager__label {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--mono-faint);
+}
+.pagination--posts .pagination--pager:hover .pager__label { color: var(--mono-accent); }
+.pager__title {
+  font-family: "Geist", "Pretendard Variable", sans-serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.35;
+  color: var(--mono-text-strong);
+}
+.pagination--posts .is-disabled { opacity: 0.4; pointer-events: none; }
+
+/* 관련 글 그리드 정리 */
+.page__related { margin-top: 3rem; padding-top: 2rem; }
+.page__related .grid__item { margin-bottom: 1.5rem; }
+.page__related .archive__item-title { font-size: 0.95rem; line-height: 1.35; }
+.page__related .archive__item-teaser {
+  border: 1px solid var(--mono-border);
+  border-radius: 8px;
+  margin-bottom: 0.6rem;
+}
+.page__related .page__meta { margin-top: 0.2rem; }
