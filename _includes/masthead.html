@@ -27,6 +27,10 @@
           <i class="fas fa-search"></i>
         </button>
         {% endif %}
+        <button class="theme-toggle" type="button" aria-label="다크 모드 전환" title="라이트/다크 전환">
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          <i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
         <button class="greedy-nav__toggle hidden" type="button">
           <span class="visually-hidden">{{ site.data.ui-text[site.locale].menu_label | default: "Toggle menu" }}</span>
           <div class="navicon"></div>

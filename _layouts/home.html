@@ -2,9 +2,24 @@
 layout: archive
 ---
 
-{{ content }}
+<section class="mono-intro">
+  <h1 class="mono-intro__title">백엔드를 깊이 있게,<br>기록으로 남깁니다.</h1>
+  <p class="mono-intro__sub">시스템의 복잡도를 다루고 안정적인 서비스를 만드는 과정을 기록합니다.</p>
+  <p class="mono-meta mono-intro__meta">POSTS {{ site.posts | size }} · UPDATED {{ site.time | date: '%Y.%m.%d' }}</p>
+</section>
 
-<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+<section class="mono-browse">
+  <div class="mono-eyebrow">BROWSE</div>
+  <div class="mono-chips">
+    <a class="mono-chip is-active" href="{{ '/categories/' | relative_url }}">All <span class="mono-chip__count">{{ site.posts | size }}</span></a>
+    {% for category in site.categories %}
+      {% assign cat_slug = category[0] | slugify %}
+      <a class="mono-chip" href="{{ '/categories/' | relative_url }}#{{ cat_slug }}">{{ category[0] }} <span class="mono-chip__count">{{ category[1].size }}</span></a>
+    {% endfor %}
+  </div>
+</section>
+
+<div class="mono-eyebrow mono-list-eyebrow">LATEST</div>
 
 {% if paginator %}
   {% assign posts = paginator.posts %}
@@ -20,3 +35,7 @@ layout: archive
 </div>
 
 {% include paginator.html %}
+
+<section class="mono-author">
+  {% include author-profile.html %}
+</section>

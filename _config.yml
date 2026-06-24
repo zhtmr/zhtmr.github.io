@@ -12,7 +12,7 @@
 
 # theme                  : "minimal-mistakes-jekyll"
 # remote_theme           : "mmistakes/minimal-mistakes"
-minimal_mistakes_skin    : "air" #"default" ,"aqua", "air", , "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
+minimal_mistakes_skin    : "mono" #"mono"(모노크롬 미니멀, 커스텀), "default", "aqua", "air", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
 locale                   : "ko-KR"
@@ -292,13 +292,13 @@ defaults:
 
     values:
       layout: single
-      author_profile: true
+      author_profile: false  # 모노 리디자인: 좌측 사이드바 제거(하단 작성자 카드로 대체)
       read_time: false
       show_date: true
       comments: true
       share: true
       related: true
-      sidebar_main: true
+      sidebar_main: false     # 모노 리디자인: 좌측 카테고리 내비 제거(상단 BROWSE 칩 + Categories 페이지로 대체)
       toc: false
       toc_sticky: true
       toc_label: 목차
@@ -309,4 +309,4 @@ defaults:
       type: pages
     values:
       layout: single
-      author_profile: true
+      author_profile: false  # 모노 리디자인: 사이드바 제거

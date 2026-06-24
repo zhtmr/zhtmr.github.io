@@ -35,3 +35,6 @@ _site
 # blog-pipeline 하네스 중간 산출물 (감사·재실행용, 발행 대상 아님)
 _workspace/
 _workspace_prev/
+
+# Stitch 디자인 시안 스캐폴딩 (로컬 참고용, 발행 대상 아님)
+.stitch/

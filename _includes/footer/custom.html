@@ -1,3 +1,32 @@
 <!-- start custom footer snippets -->
 
+<!-- Mono: 다크 모드 토글 핸들러 -->
+<script>
+  (function () {
+    function apply(theme) {
+      var root = document.documentElement;
+      if (theme === 'dark') root.setAttribute('data-theme', 'dark');
+      else root.removeAttribute('data-theme');
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+      var btn = document.querySelector('.theme-toggle');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          // 전환 트랜지션은 첫 클릭 이후에만 켠다(초기 로드 깜빡임 방지)
+          document.documentElement.classList.add('theme-anim');
+          var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+          var next = isDark ? 'light' : 'dark';
+          apply(next);
+          try { localStorage.setItem('theme', next); } catch (e) {}
+        });
+      }
+    });
+    // OS 테마가 바뀌고 사용자가 수동 설정을 안 했으면 따라간다
+    try {
+      window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function (e) {
+        if (!localStorage.getItem('theme')) apply(e.matches ? 'dark' : 'light');
+      });
+    } catch (e) {}
+  })();
+</script>
 <!-- end custom footer snippets -->

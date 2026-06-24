@@ -40,14 +40,11 @@
   <!--  SUIT font -->
   <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/static/woff2/SUIT.css" rel="stylesheet">
 
-  <style>
-    body {font-family: 'SUIT', sans-serif;}
-  </style>
-
   <link href="https://cdn.jsdelivr.net/gh/sun-typeface/SUIT@2/fonts/variable/woff2/SUIT-Variable.css" rel="stylesheet">
 
   <style>
-    body {font-family: 'SUIT Variable', sans-serif;}
+    /* 모노크롬 미니멀: 본문 한글 = Pretendard 우선 (SUIT 폴백) */
+    body { font-family: 'Pretendard Variable', 'Pretendard', 'SUIT Variable', -apple-system, BlinkMacSystemFont, 'Noto Sans KR', sans-serif; }
   </style>
 
 
@@ -89,7 +86,7 @@
       border-radius: 16px;
     }
     ::-webkit-scrollbar-thumb:hover {
-      background: #c42f95d9;
+      background: #9ca3af;
     }
     ::-webkit-scrollbar-button:start:decrement,
     ::-webkit-scrollbar-button:end:increment
@@ -188,8 +185,7 @@
 <script>
   addBackToTop({
     diameter: 56,
-    backgroundColor: 'rgb(186, 6, 130)',
-    // backgroundColor: '#542C85',
+    backgroundColor: '#111111',
     textColor: '#fff'
   })
 </script>

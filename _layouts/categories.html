@@ -2,7 +2,12 @@
 layout: archive
 ---
 
-{{ content }}
+<section class="mono-intro">
+  <div class="mono-eyebrow">ARCHIVE</div>
+  <h1 class="mono-intro__title mono-intro__title--page">Categories</h1>
+  <p class="mono-intro__sub">주제별로 정리된 글 모음</p>
+  <p class="mono-meta mono-intro__meta">{{ site.categories | size }} CATEGORIES · {{ site.posts | size }} POSTS</p>
+</section>
 
 {% assign categories_max = 0 %}
 {% for category in site.categories %}
@@ -11,32 +16,41 @@ layout: archive
   {% endif %}
 {% endfor %}
 
-<ul class="taxonomy__index">
+<div class="mono-cat-grid">
   {% for i in (1..categories_max) reversed %}
     {% for category in site.categories %}
       {% if category[1].size == i %}
-        <li>
-          <a href="#{{ category[0] | slugify }}">
-            <strong>{{ category[0] }}</strong> <span class="taxonomy__count">{{ i }}</span>
-          </a>
-        </li>
+        {% assign cat_slug = category[0] | slugify %}
+        <a class="mono-cat-card" href="#{{ cat_slug }}">
+          <div class="mono-cat-card__head">
+            <span class="mono-cat-card__name">{{ category[0] }}</span>
+            <span class="mono-cat-card__count">{{ i }} posts</span>
+          </div>
+          <ul class="mono-cat-card__recent">
+            {% for post in category.last limit: 2 %}
+              <li>{{ post.title | markdownify | strip_html }}</li>
+            {% endfor %}
+          </ul>
+        </a>
       {% endif %}
     {% endfor %}
   {% endfor %}
-</ul>
+</div>
+
+<a href="{{ '/' | relative_url }}" class="mono-viewall">View all posts →</a>
 
 {% assign entries_layout = page.entries_layout | default: 'list' %}
 {% for i in (1..categories_max) reversed %}
   {% for category in site.categories %}
     {% if category[1].size == i %}
-      <section id="{{ category[0] | slugify | downcase }}" class="taxonomy__section">
-        <h2 class="archive__subtitle">{{ category[0] }}</h2>
+      {% assign cat_slug = category[0] | slugify %}
+      <section id="{{ cat_slug }}" class="taxonomy__section mono-cat-section">
+        <h2 class="archive__subtitle mono-cat-section__title">{{ category[0] }} <span class="mono-cat-section__count">{{ i }}</span></h2>
         <div class="entries-{{ entries_layout }}">
           {% for post in category.last %}
             {% include archive-single.html type=entries_layout %}
           {% endfor %}
         </div>
-        <a href="#page-title" class="back-to-top">{{ site.data.ui-text[site.locale].back_to_top | default: 'Back to Top' }} &uarr;</a>
       </section>
     {% endif %}
   {% endfor %}

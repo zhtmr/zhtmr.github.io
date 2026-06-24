@@ -9,7 +9,25 @@
 <link rel="shortcut icon" href="/assets/logo.ico/favicon.ico">
 <meta name="msapplication-TileColor" content="#da532c">
 <meta name="msapplication-config" content="/assets/logo.ico/browserconfig.xml">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0a0a0a" media="(prefers-color-scheme: dark)">
+
+<!-- Mono: 다크 모드 초기화 (FOUC 방지 — 페인트 전 data-theme 설정) -->
+<script>
+  (function () {
+    try {
+      var stored = localStorage.getItem('theme');
+      var dark = stored
+        ? stored === 'dark'
+        : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+    } catch (e) {}
+  })();
+</script>
+
+<!-- JetBrains Mono — 코드/메타 모노스페이스 -->
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <!-- end custom head snippets -->
 
 <style>
