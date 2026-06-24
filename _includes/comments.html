@@ -173,25 +173,30 @@
       <section id="utterances-comments"></section>
     {% when "giscus" %}
   <h4 class="page__comments-title">{{ comments_label }}</h4>
-<!--  <section id="giscus-comments"></section>-->
-  <script src="https://giscus.app/client.js"
-          data-repo="zhtmr/blog-comments"
-          data-repo-id="R_kgDOKdARpg"
-          data-category="Comments"
-          data-category-id="DIC_kwDOKdARps4CcFo3"
-          data-mapping="pathname"
-          data-strict="0"
-          data-reactions-enabled="1"
-          data-emit-metadata="1"
-          data-input-position="top"
-          data-theme="light_high_contrast"
-          data-lang="ko"
-          data-loading="lazy"
-          crossorigin="anonymous"
-          async>
+  <div class="giscus"></div>
+  <script>
+    (function () {
+      var dark = document.documentElement.getAttribute('data-theme') === 'dark';
+      var s = document.createElement('script');
+      s.src = 'https://giscus.app/client.js';
+      s.setAttribute('data-repo', 'zhtmr/blog-comments');
+      s.setAttribute('data-repo-id', 'R_kgDOKdARpg');
+      s.setAttribute('data-category', 'Comments');
+      s.setAttribute('data-category-id', 'DIC_kwDOKdARps4CcFo3');
+      s.setAttribute('data-mapping', 'pathname');
+      s.setAttribute('data-strict', '0');
+      s.setAttribute('data-reactions-enabled', '1');
+      s.setAttribute('data-emit-metadata', '1');
+      s.setAttribute('data-input-position', 'top');
+      // 사이트 테마와 동기화(다크/라이트). 토글 시 _includes/footer/custom.html 에서 postMessage 로 갱신.
+      s.setAttribute('data-theme', dark ? 'dark_dimmed' : 'light');
+      s.setAttribute('data-lang', 'ko');
+      s.setAttribute('data-loading', 'lazy');
+      s.crossOrigin = 'anonymous';
+      s.async = true;
+      document.querySelector('.giscus').appendChild(s);
+    })();
   </script>
-    <div class="giscus">
-  </div>
     {% when "custom" %}
       {% include /comments-providers/custom.html %}
   {% endcase %}

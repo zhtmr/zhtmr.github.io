@@ -762,3 +762,33 @@ html[data-theme="dark"] ::-webkit-scrollbar-thumb { background-color: #3f3f46 !i
   margin-bottom: 0.6rem;
 }
 .page__related .page__meta { margin-top: 0.2rem; }
+
+/* 이전/다음 카드 정렬(가운데 정렬 방지) */
+.pagination--posts .pagination--pager { align-items: flex-start; text-align: left; }
+.pagination--posts .pager--next { align-items: flex-end; text-align: right; }
+
+/* 하단 작성자 카드 = 보더 박스 (포스트 전용) */
+.mono-author--post {
+  border: 1px solid var(--mono-border);
+  border-radius: 12px;
+  padding: 1.75rem;
+  background: var(--mono-bg-elev);
+  margin-top: 2.5rem;
+}
+
+/* 댓글(giscus) 영역 — 모노 헤더 + 테마 동기화 래퍼 */
+.page__comments {
+  clear: both;
+  margin-top: 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--mono-border);
+}
+.page__comments-title {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--mono-faint);
+  margin: 0 0 1.5rem;
+}
+.giscus, .giscus-frame { width: 100%; }

@@ -18,6 +18,14 @@
           var next = isDark ? 'light' : 'dark';
           apply(next);
           try { localStorage.setItem('theme', next); } catch (e) {}
+          // giscus 댓글 테마도 동기화
+          var giscusFrame = document.querySelector('iframe.giscus-frame');
+          if (giscusFrame && giscusFrame.contentWindow) {
+            giscusFrame.contentWindow.postMessage(
+              { giscus: { setConfig: { theme: next === 'dark' ? 'dark_dimmed' : 'light' } } },
+              'https://giscus.app'
+            );
+          }
         });
       }
     });
